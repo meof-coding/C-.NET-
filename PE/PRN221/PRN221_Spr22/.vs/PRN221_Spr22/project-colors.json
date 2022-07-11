@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ea9d84e8-f20d-449d-99b8-ee0ebd8a3008": {
+      "ProjectGuid": "ea9d84e8-f20d-449d-99b8-ee0ebd8a3008",
+      "DisplayName": "PRN221_Spr22",
+      "ColorIndex": 0
+    },
+    "25396969-a0d4-4919-b362-a72d29f3aee5": {
+      "ProjectGuid": "25396969-a0d4-4919-b362-a72d29f3aee5",
+      "DisplayName": "WebApplication1",
+      "ColorIndex": 1
+    },
+    "a39ecff6-4c59-4c76-ad3c-f87c8276eec2": {
+      "ProjectGuid": "a39ecff6-4c59-4c76-ad3c-f87c8276eec2",
+      "DisplayName": "WebApplication2",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

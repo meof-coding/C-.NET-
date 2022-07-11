@@ -1,0 +1,21 @@
+﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript">
+     //Enable Toast
+         var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+           var toastList = toastElList.map(function(toastEl) {
+      return new bootstrap.Toast(toastEl)
+    })
+      if("@TempData["successMsg"]" != ""){
+          $(".toast").addClass("bg-success")
+          $(".toast-body").html("@TempData["successMsg"]")
+          $(".fw-semibold").html("Success!!")
+       toastList.forEach(toast =>  toast.show() )
+      }
+      if("@TempData["errorMsg"]" != ""){
+          $(".toast").addClass("bg-danger")
+          $(".toast-body").html("@TempData["errorMsg"]")
+          $(".fw-semibold").html("Error!!")
+       toastList.forEach(toast =>  toast.show() )
+      }
+</script>

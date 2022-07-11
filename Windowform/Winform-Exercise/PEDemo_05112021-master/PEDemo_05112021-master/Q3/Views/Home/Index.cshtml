@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form action="~/Home/Index" method="post">
+    StudentID: <input type="text" name="StudentID" value="HE150379" readonly><br />
+    StudentName: <input type="text" name="StudentName" required><br />
+    Subject:
+    <select name="Subject">
+        <option value="PRF192">PRF192</option>
+        <option value="PRO201">PRO201</option>
+        <option value="DBI201">DBI201</option>
+        <option value="PRN292">PRN292</option>
+        <option value="PRJ321">PRJ321</option>
+    </select><br />
+    Test Type:
+    <input name="TestType" type="radio" value="PE" checked>FE
+    <input name="TestType" type="radio" value="FE">PE<br/>
+    Date:<br/>
+    <input type="date" name="date"><br/>
+    Mark: <input name="Mark" type="number"><br/>
+    <input type="submit" value="Submit">
+</form>

@@ -10,7 +10,7 @@ using SignalRAssignment.Models;
 
 namespace SignalRAssignment.Pages.MemberManagement
 {
-    [Authorize]
+    [Authorize(Policy = "RequireAdminRole")]
     public class IndexModel : PageModel
     {
         private readonly SignalRAssignment.Models.Lab2Context _context;

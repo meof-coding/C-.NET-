@@ -14,8 +14,10 @@ namespace SignalRAssignment.Models
         public int QuantityPerUnit { get; set; }
         public decimal UnitPrice { get; set; }
         public string ProductImage { get; set; }
+        public int? DiscountId { get; set; }
 
         public virtual Category Category { get; set; }
+        public virtual Discount Discount { get; set; }
         public virtual Supplier Supplier { get; set; }
     }
 }

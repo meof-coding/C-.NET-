@@ -16,3 +16,22 @@
             integrity="sha384-ifv0TYDWxBHzvAk2Z0n8R434FL1Rlv/Av18DXE43N/1rvHyOG4izKst0f2iSLdds">
     </script>
 </environment>
+<script type="text/javascript">
+     //Enable Toast
+         var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+           var toastList = toastElList.map(function(toastEl) {
+      return new bootstrap.Toast(toastEl)
+    })
+      if("@TempData["successMsg"]" != ""){
+          $(".toast").addClass("bg-success")
+          $(".toast-body").html("@TempData["successMsg"]")
+          $(".fw-semibold").html("Success!!")
+       toastList.forEach(toast =>  toast.show() )
+      }
+      if("@TempData["errorMsg"]" != ""){
+          $(".toast").addClass("bg-danger")
+          $(".toast-body").html("@TempData["errorMsg"]")
+          $(".fw-semibold").html("Error!!")
+       toastList.forEach(toast =>  toast.show() )
+      }
+</script>

@@ -1,4 +1,12 @@
-﻿
-@{
-    Layout = "/Pages/Shared/_Layout.cshtml";
+﻿@{
+    var routeUrl = ViewContext.RouteData.Values["page"].ToString();
+    var pages = new List<string> { "MemberManagement" };
+    if (pages.Any(routeUrl.Contains))
+    {
+        Layout = "_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Pages/Shared/_Layout.cshtml";
+    }
 }

@@ -38,10 +38,15 @@ namespace SignalRAssignment
                 .AddEntityFrameworkStores<SignalRAssignmentContext>().AddDefaultTokenProviders();
             //services.AddScoped(typeof(Lab2Context));
             services.AddRazorPages();
-            //Role Authorization
+            //Staff: Role Policy
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Require Staff Role", policy => policy.RequireRole("Staff"));
+                options.AddPolicy("RequireStaffRole", policy => policy.RequireRole("Staff"));
+            });
+            //Admin: Role Policy
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
             });
             //Identity Configure
             services.Configure<IdentityOptions>(options =>

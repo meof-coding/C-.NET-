@@ -4,11 +4,11 @@
 @{
     ViewData["Title"] = "Please login in here";
 }
-
-<h1>@ViewData["Title"]</h1>
-<div class="row">
+<partial name="_HeaderPartial" />
+<h1 class="mx-5 px-5" id="Login">@ViewData["Title"]</h1>
+<div class="row mx-5 px-5">
     <div class="col-md-4">
-        <section>
+        <section style="padding:30px">
             <form id="account" method="post">
                 <h4>Enter your detail below.</h4>
                 <hr />
@@ -36,13 +36,13 @@
                 </div>
                 <div class="form-group">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        <a id="forgot-password" style="color:coral;text-decoration:underline;" asp-page="./ForgotPassword">Forgot your password?</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" style="color:coral;text-decoration:underline;">Register as a new user</a>
                     </p>
                     <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                        <a id="resend-confirmation" style="color:coral;text-decoration:underline;" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
                     </p>
                 </div>
             </form>
@@ -81,5 +81,5 @@
 </div>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+<partial name="_ValidationScriptsPartial" />
 }

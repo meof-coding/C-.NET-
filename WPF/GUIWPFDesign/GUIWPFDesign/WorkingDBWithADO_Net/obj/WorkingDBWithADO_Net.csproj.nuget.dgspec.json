@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\WorkingDBWithADO_Net.csproj": {}
+    "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\WorkingDBWithADO_Net.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\WorkingDBWithADO_Net.csproj": {
+    "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\WorkingDBWithADO_Net.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\WorkingDBWithADO_Net.csproj",
+        "projectUniqueName": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\WorkingDBWithADO_Net.csproj",
         "projectName": "WorkingDBWithADO_Net",
-        "projectPath": "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\WorkingDBWithADO_Net.csproj",
+        "projectPath": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\WorkingDBWithADO_Net.csproj",
         "packagesPath": "C:\\Users\\Sinka.Dev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\obj\\",
+        "outputPath": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

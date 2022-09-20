@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\Layout\\Layout.csproj",
+      "projectUniqueName": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\Layout\\Layout.csproj",
       "projectName": "Layout",
-      "projectPath": "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\Layout\\Layout.csproj",
+      "projectPath": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\Layout\\Layout.csproj",
       "packagesPath": "C:\\Users\\Sinka.Dev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\Layout\\obj\\",
+      "outputPath": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\Layout\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

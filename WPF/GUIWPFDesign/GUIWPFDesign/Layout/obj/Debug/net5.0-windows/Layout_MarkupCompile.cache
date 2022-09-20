@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Sinka.Dev\Downloads\GUIWPFDesign\GUIWPFDesign\Layout\obj\Debug\net5.0-windows\
+C:\Users\Sinka.Dev\Downloads\C-sharp-dotNET-\WPF\GUIWPFDesign\GUIWPFDesign\Layout\obj\Debug\net5.0-windows\
 Layout
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\Sinka.Dev\Downloads\GUIWPFDesign\GUIWPFDesign\Layout\App.xaml
+C:\Users\Sinka.Dev\Downloads\C-sharp-dotNET-\WPF\GUIWPFDesign\GUIWPFDesign\Layout\App.xaml
 41245676531
 
 6-332110975
 193-1891726104
 CanvasLayout.xaml;Grid.xaml;StackPanel.xaml;WrapPanel.xaml;
 
-False
+True
 

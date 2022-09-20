@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dpOuCJ1xsHUAF/Xd320V5X/y6XH7xX5KQ0uAx48zmN6txNmNWAHGz/6lSia0lWf4Cz+LaDomI0Ub/bg/guDZmQ==",
+  "dgSpecHash": "DrMweNzwktzZkOHfDDJh/m5IlWblAd8S5jF++Jm71Qj0RBLaZUKQ4NebdwMJLnH9Fqdh9g8lD/m1Rgqw0I76zw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\WorkingDBWithADO_Net.csproj",
+  "projectFilePath": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\WorkingDBWithADO_Net\\WorkingDBWithADO_Net.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sinka.Dev\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Sinka.Dev\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.2\\microsoft.data.sqlclient.2.1.2.nupkg.sha512",

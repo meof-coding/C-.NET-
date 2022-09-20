@@ -77,7 +77,7 @@ namespace Layout {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Layout;component/canvaslayout.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Layout;V1.0.0.0;component/canvaslayout.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\CanvasLayout.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\AllControls\\AllControls.csproj",
+      "projectUniqueName": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\AllControls\\AllControls.csproj",
       "projectName": "AllControls",
-      "projectPath": "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\AllControls\\AllControls.csproj",
+      "projectPath": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\AllControls\\AllControls.csproj",
       "packagesPath": "C:\\Users\\Sinka.Dev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sinka.Dev\\Downloads\\GUIWPFDesign\\GUIWPFDesign\\AllControls\\obj\\",
+      "outputPath": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\WPF\\GUIWPFDesign\\GUIWPFDesign\\AllControls\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -23,6 +23,8 @@ namespace WorkingDBwithEF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Car> listCars;
+        public List<Car> listCarsByYear;
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +34,8 @@ namespace WorkingDBwithEF
         public void LoadCars()
         {
             lvCars.ItemsSource = new CarDAO().GetCars();
+            listCars = new CarDAO().GetCars();
+            listCarsByYear = listCars.GroupBy(car => car.ReleasedYear).Select(grp => grp.First()).OrderBy(car => car.ReleasedYear).ToList();
         }
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
@@ -124,8 +128,6 @@ namespace WorkingDBwithEF
 
         public void InitBarChart()
         {
-            var listCars = new CarDAO().GetCars();
-            var listCarsByYear = listCars.GroupBy(car => car.ReleasedYear).Select(grp => grp.First()).ToList();
             foreach (var item in listCarsByYear)
             {
                 Rectangle rectangle = new Rectangle();
@@ -167,9 +169,18 @@ namespace WorkingDBwithEF
 
         }
 
+        public void InitPieChart()
+        {
+            float angle = 0, prevAngle = 0;
+
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             InitBarChart();
+            InitPieChart();
         }
+
+      
     }
 }

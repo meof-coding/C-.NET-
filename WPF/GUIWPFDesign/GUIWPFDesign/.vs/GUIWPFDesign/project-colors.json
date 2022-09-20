@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4db35234-9d3a-4079-b76f-f0759a3860fc": {
+      "ProjectGuid": "4db35234-9d3a-4079-b76f-f0759a3860fc",
+      "DisplayName": "WorkingDBwithEF",
+      "ColorIndex": 0
+    },
+    "de4768e0-bc07-4a95-b8c2-a740f279145b": {
+      "ProjectGuid": "de4768e0-bc07-4a95-b8c2-a740f279145b",
+      "DisplayName": "Layout",
+      "ColorIndex": 1
+    },
+    "2878d1ef-f7b6-4d21-ad9c-cc229dcbb858": {
+      "ProjectGuid": "2878d1ef-f7b6-4d21-ad9c-cc229dcbb858",
+      "DisplayName": "AllControls",
+      "ColorIndex": 2
+    },
+    "90535854-bb9f-494c-8aba-7a9523c010ee": {
+      "ProjectGuid": "90535854-bb9f-494c-8aba-7a9523c010ee",
+      "DisplayName": "WorkingDBWithADO_Net",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

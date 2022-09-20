@@ -1,0 +1,32 @@
+﻿<Window x:Class="AllControls.RadioButton"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AllControls"
+        mc:Ignorable="d"
+        Title="RadioButton" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <GroupBox Margin="5">
+                <StackPanel>
+                    <RadioButton Name="g1" Margin="3">Group 1</RadioButton>
+                    <RadioButton Name="g2" Margin="3">Group 2</RadioButton>
+                    <RadioButton Name="g3" Margin="3">Group 3</RadioButton>
+                    <RadioButton Name="g4" Margin="3">Group 4</RadioButton>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Margin="5">
+                <StackPanel>
+                    <RadioButton Name="g5" Margin="3">Group 5</RadioButton>
+                    <RadioButton Name="g6" Margin="3">Group 6</RadioButton>
+                    <RadioButton Name="g7" Margin="3">Group 7</RadioButton>
+                    <RadioButton Name="g8" Margin="3">Group 8</RadioButton>
+                </StackPanel>
+            </GroupBox>
+            <TextBlock><Bold>Current selections:</Bold></TextBlock>
+            <TextBlock x:Name="txtSelection" TextWrapping="Wrap"></TextBlock>
+            <Button x:Name="btnGetValues" Width="80" HorizontalAlignment="Center" Height="30" Click="btnGetValues_Click">Get Values</Button>
+        </StackPanel>
+    </Grid>
+</Window>

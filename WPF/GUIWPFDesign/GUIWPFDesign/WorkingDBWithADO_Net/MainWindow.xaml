@@ -1,0 +1,44 @@
+﻿<Window x:Class="WorkingDBWithADO_Net.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkingDBWithADO_Net"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="Window">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="400">
+            <Label Content="Category Information" FontSize="30" Foreground="Red" FontWeight="Bold"/>
+            <Label Content="Category ID"/>
+            <TextBox Name="txtCatId" 
+                     Text="{Binding Path=CategoryId, Mode=OneWay}"
+                     DataContext="{Binding ElementName=lvCategories, Path=SelectedItem}"/>
+            <Label Content="Category Name"/>
+            <TextBox Name="txtCatName"
+                     Text="{Binding Path=CategoryName, Mode=OneWay}"
+                     DataContext="{Binding ElementName=lvCategories, Path=SelectedItem}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="btnInsert" Content="Insert" Margin="10" Width="80" Click="btnInsert_Click"/>
+                <Button Name="btnUpdate" Content="Update" Margin="10" Width="80" Click="btnUpdate_Click"/>
+                <Button Name="btnDelete" Content="Delete" Margin="10" Width="80" Click="btnDelete_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <ListView Name="lvCategories" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Category ID" Width="300" DisplayMemberBinding="{Binding Path=CategoryId}"></GridViewColumn>
+                    <GridViewColumn Header="Category Name" Width="300" DisplayMemberBinding="{Binding Path=CategoryName}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

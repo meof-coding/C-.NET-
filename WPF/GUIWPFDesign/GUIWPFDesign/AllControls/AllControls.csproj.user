@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ComboBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DataGrid.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ListBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RadioButton.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ComboBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DataGrid.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ListBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RadioButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

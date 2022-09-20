@@ -1,0 +1,21 @@
+﻿<Window x:Class="AllControls.ListBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AllControls"
+        mc:Ignorable="d"
+        Title="ListBox" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <ListBox Name="lst">
+                <CheckBox Margin="3">Option 1</CheckBox>
+                <CheckBox Margin="3">Option 2</CheckBox>
+                <CheckBox Margin="3">Option 3</CheckBox>
+            </ListBox>
+            <TextBlock><Bold>Current selections:</Bold></TextBlock>
+            <TextBlock x:Name="txtSelection" TextWrapping="Wrap"></TextBlock>
+            <Button x:Name="btnGetValues" Width="80" HorizontalAlignment="Center" Height="30" Click="btnGetValues_Click">Get Values</Button>
+        </StackPanel>
+    </Grid>
+</Window>

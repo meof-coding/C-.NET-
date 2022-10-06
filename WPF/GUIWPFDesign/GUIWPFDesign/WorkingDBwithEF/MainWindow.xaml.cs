@@ -172,11 +172,86 @@ namespace WorkingDBwithEF
         public void InitPieChart()
         {
             float angle = 0, prevAngle = 0;
+            var radius = pieContainer.Width / 2;
+            var centerX = pieContainer.Width / 2;
+            var centerY = xAxis.Y2 / 2;
+
+
+            foreach (var item in listCarsByYear)
+            {
+                var percent = listCars.Where(car => car.ReleasedYear == item.ReleasedYear).Count() *100/ listCarsByYear.Count();
+                //Starting point
+                double line1X = (radius * Math.Cos(angle * Math.PI / 180)) + centerX;
+                double line1Y = (radius * Math.Sin(angle * Math.PI / 180)) + centerY;
+
+                angle = percent * (float)360 / 100 + prevAngle;
+
+                double arcX = (radius * Math.Cos(angle * Math.PI / 180)) + centerX;
+                double arcY = (radius * Math.Sin(angle * Math.PI / 180)) + centerY;
+
+                var line1Segment = new LineSegment(new Point(line1X, line1Y), false);
+                double arcWidth = radius, arcHeight = radius;
+                bool isLargeArc = percent> 50;
+                var arcSegment = new ArcSegment()
+                {
+                    Size = new Size(arcWidth, arcHeight),
+                    Point = new Point(arcX, arcY),
+                    SweepDirection = SweepDirection.Clockwise,
+                    IsLargeArc = isLargeArc,
+                };
+                var line2Segment = new LineSegment(new Point(centerX, centerY), false);
+
+                var pathFigure = new PathFigure(
+                    new Point(centerX, centerY),
+                    new List<PathSegment>()
+                    {
+                        line1Segment,
+                        arcSegment,
+                        line2Segment,
+                    },
+                    true);
+
+                var pathFigures = new List<PathFigure>() { pathFigure, };
+                var pathGeometry = new PathGeometry(pathFigures);
+                var path = new Path()
+                {
+                    Fill = GenerateColor(),
+                    Data = pathGeometry,
+                };
+                pieCanvas.Children.Add(path);
+                prevAngle = angle;
+
+
+                // draw outlines
+                var outline1 = new Line()
+                {
+                    X1 = centerX,
+                    Y1 = centerY,
+                    X2 = line1Segment.Point.X,
+                    Y2 = line1Segment.Point.Y,
+                    Stroke = Brushes.White,
+                    StrokeThickness = 5,
+                };
+                var outline2 = new Line()
+                {
+                    X1 = centerX,
+                    Y1 = centerY,
+                    X2 = arcSegment.Point.X,
+                    Y2 = arcSegment.Point.Y,
+                    Stroke = Brushes.White,
+                    StrokeThickness = 5,
+                };
+
+                pieCanvas.Children.Add(outline1);
+                pieCanvas.Children.Add(outline2);
+
+            }
 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadCars();
             InitBarChart();
             InitPieChart();
         }

@@ -64,7 +64,10 @@
                 </Grid>
             </StackPanel>
             <!--Pie Chart-->
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="450">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="450" Name="pieContainer">
+                <Canvas Name ="pieCanvas">
+                    
+                </Canvas>
             </StackPanel> 
         </StackPanel>
 
@@ -79,7 +82,7 @@
                     Click="btnDelete_Click"/>
         </StackPanel>
         
-        <ListView Grid.Row="2" Name="lvCars" Width="auto" Height="auto">
+        <ListView Grid.Row="2" Name="lvCars" Width="400" Height="auto">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Car ID" Width="100"

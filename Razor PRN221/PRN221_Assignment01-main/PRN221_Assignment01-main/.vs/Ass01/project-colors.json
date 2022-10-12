@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "78876a87-2d80-4523-a0bd-82c7a9dcf1ba": {
+      "ProjectGuid": "78876a87-2d80-4523-a0bd-82c7a9dcf1ba",
+      "DisplayName": "FStored",
+      "ColorIndex": 0
+    },
+    "689d2578-b978-437d-a6d2-5d6c021edbfe": {
+      "ProjectGuid": "689d2578-b978-437d-a6d2-5d6c021edbfe",
+      "DisplayName": "DataAccess",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

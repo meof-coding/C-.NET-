@@ -1,0 +1,130 @@
+﻿@page "{currentpage:int?}"
+@model DemoClasswork1.Pages.Product.IndexModel
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form asp-page="./List" method="post">
+
+
+    <div class="form-actions no-color">
+        <p>
+            Find by name:
+            <input type="text" name="productName" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./List">Back to full List</a>
+        </p>
+    </div>
+    <strong>Filter</strong>
+    @foreach (var item in Model.Categories)
+    {
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="CateId" value="@item.CategoryId">
+            <label class="form-check-label" for="flexSwitchCheckChecked">@item.CategoryName</label>
+        </div>
+    }
+    <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label"> <strong>Price:</strong> From</label>
+        </div>
+        <div class="col-auto">
+            <input type="number" id="inputPassword6" class="form-control" name ="lowestPrice" >
+        </div>
+        <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label">To</label>
+        </div>
+        <div class="col-auto">
+            <input type="number" id="inputPassword6" class="form-control" name ="highestPrice" >
+        </div>
+    </div>
+
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].QuantityPerUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].UnitsInStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].UnitsOnOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ReorderLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Discontinued)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Supplier)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProductsPage)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuantityPerUnit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitsInStock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitsOnOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReorderLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discontinued)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ProductId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<ul class="pagination">
+        @for (var i = 1; i <= (int)Math.Ceiling(decimal.Divide(Model.Product.Count, Model.PageSize)); i++)
+        {
+            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                <a asp-page="./List" asp-route-currentpage="@i" class="page-link">@i</a>
+            </li>
+        }
+    </ul>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YmczPCvx59hwvIlTLSUAfzLbe/uWrq08X97Ck4KgAC0ehXwCPfpX5x5akB0EQ0hXR0l3nPTMTPnbS6q3D3k5/w==",
+  "dgSpecHash": "pC+rPR93Yo//650kQZ5oprC9YOJzZYD5riueokSRMbLD61NuvmjGPWlV832ZPusmNGWnWWZYtUi5myU4G14xsA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sinka.Dev\\Downloads\\DemoClasswork1\\DemoClasswork1\\DemoClasswork1.csproj",
+  "projectFilePath": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\Razor PRN221\\DemoClasswork1\\DemoClasswork1\\DemoClasswork1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sinka.Dev\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Sinka.Dev\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

@@ -26,7 +26,7 @@
     @foreach (var item in Model.Categories)
     {
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="CateId" value="@item.CategoryId">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="CateId" value="@item.CategoryId" @((Model.ListCateId!=null && Model.ListCateId.Contains(item.CategoryId))?"checked":"")>
             <label class="form-check-label" for="flexSwitchCheckChecked">@item.CategoryName</label>
         </div>
     }
@@ -35,13 +35,13 @@
             <label for="inputPassword6" class="col-form-label"> <strong>Price:</strong> From</label>
         </div>
         <div class="col-auto">
-            <input type="number" id="inputPassword6" class="form-control" name ="lowestPrice" >
+            <input type="number" id="inputPassword6" class="form-control" name ="lowestPrice" value="@(Model.LowestPrice==null?"":Model.LowestPrice)" >
         </div>
         <div class="col-auto">
             <label for="inputPassword6" class="col-form-label">To</label>
         </div>
         <div class="col-auto">
-            <input type="number" id="inputPassword6" class="form-control" name ="highestPrice" >
+            <input type="number" id="inputPassword6" class="form-control" name ="highestPrice" value="@(Model.HighestPrice==null?"":Model.HighestPrice)">
         </div>
     </div>
 
@@ -124,7 +124,7 @@
         @for (var i = 1; i <= (int)Math.Ceiling(decimal.Divide(Model.Product.Count, Model.PageSize)); i++)
         {
             <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                <a asp-page="./List" asp-route-currentpage="@i" class="page-link">@i</a>
+                <a asp-page="./List" asp-route-currentpage="@i" asp-route-productName="@Model.CurrentFilter" asp-route-lowestPrice ="@Model.LowestPrice" asp-route-highestPrice="@Model.HighestPrice"  asp-route-CateId = "@Model.Categories" class="page-link">@i</a>
             </li>
         }
     </ul>

@@ -91,6 +91,12 @@ namespace DemoClasswork1.Pages.Product
                 query = query.Where(p => p.UnitPrice <= highestPrice);
             }
             Product = query.ToList();
+            if (pageIndex == null)
+            {
+                pageIndex = 1;
+
+            }
+            CurrentPage = pageIndex.GetValueOrDefault();
             await Pagination(pageIndex, query);
         }
 

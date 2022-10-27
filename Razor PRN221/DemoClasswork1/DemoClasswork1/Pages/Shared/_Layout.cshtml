@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DemoClasswork1.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 </head>
 <body>
     <header>
@@ -23,7 +24,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Product/List">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <form asp-page="/Cart/Index" method = "post" class="cart-form">
+                                 <span class="cart-checkout">
+                                     <i class="fa-solid fa-cart-shopping"></i><span class="quantity-number" style="  background: #fa8282; color: white; border-radius: 11px; padding: 0px 7px;">0</span>
+                                 </span>
+                            </form>
+                           
                         </li>
                     </ul>
                 </div>
@@ -45,7 +51,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

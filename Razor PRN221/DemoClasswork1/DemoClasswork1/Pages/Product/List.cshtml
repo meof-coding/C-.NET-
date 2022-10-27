@@ -114,7 +114,8 @@
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
                     <a asp-page="./Details" asp-route-id="@item.ProductId">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
+                    @*<a asp-page="./List" asp-route-id="@item.ProductId">Add to cart</a>*@
+                    <span class="cart" style="cursor:pointer" id = "@item.ProductId"><i class="fa-solid fa-cart-plus"></i></span>
                 </td>
             </tr>
         }
@@ -128,3 +129,19 @@
             </li>
         }
     </ul>
+
+@section Scripts{
+    <script type="text/javascript">
+        $( ".cart" ).click(function() {
+            //onclick to inscrease innerhtml value in .quantity-number
+            //set $(".quantity-number").html() to window variable
+            window.quantity = parseInt($(".quantity-number").html()) + 1;
+            $(".quantity-number").html(window.quantity);
+            //make an input type = hidden in form class = cart-form
+            $(".cart-form").append('<input type="hidden" name="CartItem" value="'+$(this).attr("id")+'">');
+        });
+        $(".cart-checkout").click(function(){
+            $(".cart-form").submit();
+        });
+   </script>
+}

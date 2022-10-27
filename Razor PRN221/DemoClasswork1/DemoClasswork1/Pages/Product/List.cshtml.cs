@@ -39,6 +39,8 @@ namespace DemoClasswork1.Pages.Product
 
         [BindProperty]
         public List<int> CateId { get; set; }
+
+       
         public async Task OnGetAsync(int? currentpage, string productName, int? lowestPrice, int? highestPrice)
         {
             List<int> categories = new List<int>();

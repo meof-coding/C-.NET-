@@ -125,7 +125,7 @@
         @for (var i = 1; i <= (int)Math.Ceiling(decimal.Divide(Model.Product.Count, Model.PageSize)); i++)
         {
             <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                <a asp-page="./List" asp-route-currentpage="@i" asp-route-productName="@Model.CurrentFilter" asp-route-lowestPrice ="@Model.LowestPrice" asp-route-highestPrice="@Model.HighestPrice"  asp-route-CateId = "@Model.Categories" class="page-link">@i</a>
+                <a asp-page="./List" asp-route-currentpage="@i" asp-route-productName="@Model.CurrentFilter" asp-route-lowestPrice ="@Model.LowestPrice" asp-route-highestPrice="@Model.HighestPrice"  class="page-link">@i</a>
             </li>
         }
     </ul>
@@ -134,9 +134,7 @@
     <script type="text/javascript">
         $( ".cart" ).click(function() {
             //onclick to inscrease innerhtml value in .quantity-number
-            //set $(".quantity-number").html() to window variable
-            window.quantity = parseInt($(".quantity-number").html()) + 1;
-            $(".quantity-number").html(window.quantity);
+            $(".quantity-number").html(parseInt($(".quantity-number").html()) + 1);
             //make an input type = hidden in form class = cart-form
             $(".cart-form").append('<input type="hidden" name="CartItem" value="'+$(this).attr("id")+'">');
         });

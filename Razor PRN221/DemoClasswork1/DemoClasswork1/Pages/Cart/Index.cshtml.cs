@@ -19,10 +19,12 @@ namespace DemoClasswork1.Pages.Cart
         public double Total { get; set; }
         [BindProperty]
         public List<int> CartItem { get; set; }
-        public void OnGet(List<int> CartItem)
+        public int TotalQuantity { get; set; }
+        public void OnGet(List<int> CartItem, int TotalQuantity)
         {
             cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
             Total = (double)cart.Sum(i => i.Product.UnitPrice * i.Quantity);
+            TotalQuantity = TotalQuantity;
         }
 
         public IActionResult OnPost(List<int> CartItem)

@@ -1,0 +1,307 @@
+﻿++Solution 'DemoClasswork1' ‎(1 of 1 project)
+i:{00000000-0000-0000-0000-000000000000}:DemoClasswork1.sln
+++DemoClasswork1
+i:{00000000-0000-0000-0000-000000000000}:DemoClasswork1
+++Connected Services 
+i:{026b7099-0149-4751-94a7-3420691e501e}:>973
+++Dependencies
+i:{026b7099-0149-4751-94a7-3420691e501e}:>972
+++Properties
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\properties\
+++wwwroot
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\
+++DataAccess
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\dataaccess\
+++Category.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\dataaccess\category.cs
+++Customer.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\dataaccess\customer.cs
+++Employee.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\dataaccess\employee.cs
+++NorthwindContext.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\dataaccess\northwindcontext.cs
+++Order.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\dataaccess\order.cs
+++OrderDetail.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\dataaccess\orderdetail.cs
+++Product.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\dataaccess\product.cs
+++Shipper.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\dataaccess\shipper.cs
+++Supplier.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\dataaccess\supplier.cs
+++Helper
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\helper\
+++SessionHelper.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\helper\sessionhelper.cs
+++Pages
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\
+++Cart
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\cart\
+++Index.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\cart\index.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\index.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\order\index.cshtml
+++Index.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\cart\index.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\index.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\order\index.cshtml.cs
+++Order
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\order\
+++Product
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\product\
+++Create.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\product\create.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\order\create.cshtml
+++Delete.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\product\delete.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\order\delete.cshtml
+++Delete.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\product\delete.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\order\delete.cshtml.cs
+++Details.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\product\details.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\order\details.cshtml
+++Edit.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\product\edit.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\order\edit.cshtml
+++List.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\product\list.cshtml
+++List.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\product\list.cshtml.cs
+++Shared
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\shared\
+++_Layout.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\shared\_layout.cshtml
+++_ValidationScriptsPartial.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\shared\_validationscriptspartial.cshtml
+++_ViewImports.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\_viewimports.cshtml
+++_ViewStart.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\_viewstart.cshtml
+++Error.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\error.cshtml
+++Privacy.cshtml
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\privacy.cshtml
+++appsettings.json
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\appsettings.json
+++PaginatedList.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\paginatedlist.cs
+++Program.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\program.cs
+++No service dependencies discovered
+i:{026b7099-0149-4751-94a7-3420691e501e}:>974
+++Analyzers
+i:{026b7099-0149-4751-94a7-3420691e501e}:analyzers
+++Frameworks
+i:{026b7099-0149-4751-94a7-3420691e501e}:frameworks
+++Packages
+i:{026b7099-0149-4751-94a7-3420691e501e}:packages
+++launchSettings.json
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\properties\launchsettings.json
+++css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\css\
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\
+++js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\js\
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\
+++lib
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\
+++favicon.ico
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\favicon.ico
+++Create.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\product\create.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\order\create.cshtml.cs
+++Details.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\product\details.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\order\details.cshtml.cs
+++Edit.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\product\edit.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\order\edit.cshtml.cs
+++_Layout.cshtml.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\shared\_layout.cshtml.css
+++Error.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\error.cshtml.cs
+++Privacy.cshtml.cs
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\pages\privacy.cshtml.cs
+++appsettings.Development.json
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\appsettings.development.json
+++MessagePackAnalyzer
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\.nuget\packages\messagepackanalyzer\2.1.152\analyzers\dotnet\messagepackanalyzer.dll
+++Microsoft.AspNetCore.Analyzers
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.App.Analyzers
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+++Microsoft.AspNetCore.App.CodeFixes
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.AspNetCore.Razor.Internal.SourceGenerator.Transport
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.internal.sourcegenerator.transport.dll
+++Microsoft.CodeAnalysis.Analyzers
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.analyzers.dll
+++Microsoft.CodeAnalysis.CSharp.Analyzers
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.csharp.analyzers.dll
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.9\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+++Microsoft.Extensions.Logging.Generators
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+++Microsoft.NET.Sdk.Razor.SourceGenerators
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+++System.Text.Json.SourceGeneration (C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.1\analyzers/dotnet/cs/System.Text.Json.SourceGeneration.dll)
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+++Microsoft.AspNetCore.App
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\microsoft.aspnetcore.app
+++Microsoft.NETCore.App
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\microsoft.netcore.app
+++Microsoft.EntityFrameworkCore.Design (6.0.9)
+i:{026b7099-0149-4751-94a7-3420691e501e}:>997
+++Microsoft.EntityFrameworkCore.SqlServer (6.0.9)
+i:{026b7099-0149-4751-94a7-3420691e501e}:>996
+++Microsoft.EntityFrameworkCore.Tools (6.0.9)
+i:{026b7099-0149-4751-94a7-3420691e501e}:>1001
+++Microsoft.Extensions.Configuration (6.0.1)
+i:{026b7099-0149-4751-94a7-3420691e501e}:>1000
+++Microsoft.Extensions.Configuration.Json (6.0.0)
+i:{026b7099-0149-4751-94a7-3420691e501e}:>999
+++Microsoft.VisualStudio.Web.CodeGeneration (6.0.10)
+i:{026b7099-0149-4751-94a7-3420691e501e}:>1003
+++Microsoft.VisualStudio.Web.CodeGeneration.Design (6.0.9)
+i:{026b7099-0149-4751-94a7-3420691e501e}:>1002
+++Swashbuckle.AspNetCore (6.3.0)
+i:{026b7099-0149-4751-94a7-3420691e501e}:>998
+++site.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\css\site.css
+++site.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\js\site.js
+++bootstrap
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\
+++jquery
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery\
+++jquery-validation
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery-validation\
+++jquery-validation-unobtrusive
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery-validation-unobtrusive\
+++dist
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery\dist\
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery-validation\dist\
+++LICENSE
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\license
+++LICENSE.txt
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery\license.txt
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery-validation-unobtrusive\license.txt
+++LICENSE.md
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery-validation\license.md
+++jquery.validate.unobtrusive.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
+++jquery.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery\dist\jquery.js
+++additional-methods.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery-validation\dist\additional-methods.js
+++jquery.validate.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+++jquery.validate.unobtrusive.min.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
+++bootstrap.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+++bootstrap-grid.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+++bootstrap-reboot.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+++bootstrap-utilities.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+++bootstrap.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+++jquery.min.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery\dist\jquery.min.js
+++additional-methods.min.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+++jquery.validate.min.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+++bootstrap.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+++bootstrap.min.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+++bootstrap.rtl.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+++bootstrap-grid.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+++bootstrap-grid.min.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+++bootstrap-grid.rtl.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+++bootstrap-reboot.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+++bootstrap-reboot.min.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+++bootstrap-reboot.rtl.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+++bootstrap-utilities.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+++bootstrap-utilities.min.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+++bootstrap-utilities.rtl.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+++bootstrap.bundle.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+++bootstrap.esm.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+++bootstrap.js.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+++bootstrap.min.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+++jquery.min.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\jquery\dist\jquery.min.map
+++bootstrap.min.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+++bootstrap.rtl.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+++bootstrap.rtl.min.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+++bootstrap-grid.min.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+++bootstrap-grid.rtl.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+++bootstrap-grid.rtl.min.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+++bootstrap-reboot.min.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+++bootstrap-reboot.rtl.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+++bootstrap-reboot.rtl.min.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+++bootstrap-utilities.min.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+++bootstrap-utilities.rtl.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+++bootstrap-utilities.rtl.min.css
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+++bootstrap.bundle.js.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+++bootstrap.bundle.min.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+++bootstrap.esm.js.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+++bootstrap.esm.min.js
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+++bootstrap.min.js.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+++bootstrap.rtl.min.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+++bootstrap-grid.rtl.min.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+++bootstrap-reboot.rtl.min.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+++bootstrap-utilities.rtl.min.css.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+++bootstrap.bundle.min.js.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+++bootstrap.esm.min.js.map
+i:{026b7099-0149-4751-94a7-3420691e501e}:c:\users\sinka.dev\downloads\c-sharp-dotnet-\razor prn221\democlasswork1\democlasswork1\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map

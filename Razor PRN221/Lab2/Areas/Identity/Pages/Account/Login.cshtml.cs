@@ -97,8 +97,17 @@ namespace Lab2.Areas.Identity.Pages.Account
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-
+            //check if user is log in and if so redirect Chat
+            if (User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("/Chat");
+            }
+            else
+            {
+                ReturnUrl = returnUrl;
+            }
             ReturnUrl = returnUrl;
+
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)

@@ -44,7 +44,7 @@ namespace WebApplication2.Pages.List
         }
         public async Task OnPostAsync()
         {
-            /*Read Json File Import*/
+          
             var file = Path.Combine(_environment.ContentRootPath, "Uploads", JsonFile.FileName);
             using (var fileStream = new FileStream(file, FileMode.Create))
             {
@@ -52,6 +52,16 @@ namespace WebApplication2.Pages.List
             }
             StreamReader streamReader = new StreamReader(file);
             string xml = streamReader.ReadToEnd();
+            /* Minh recommend :) */
+            //if (JsonFile == null)
+            //{
+            //    return Page();
+            //}
+            //Stream stream = JsonFile.OpenReadStream();
+            //StreamReader streamReader1 = new StreamReader(stream);
+            //string data = await streamReader1.ReadToEndAsync();
+
+            /*Read Json File Import*/
             //Service = JsonConvert.DeserializeObject<List<Service>>(data);
             //foreach (var item in Service)
             //{

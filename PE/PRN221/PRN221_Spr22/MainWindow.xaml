@@ -19,11 +19,12 @@
             <Label Name ="lblEmployeeID" Content="Employee Id"/>
             <TextBox Name="txtEmployeeID" HorizontalAlignment="Stretch" 
                      Height="25" Width="400"
-                     Text="{Binding Path=Id, Mode=OneWay}"  
+                     IsEnabled="False"
+                     Text="{Binding Path=Id, Mode=TwoWay}"  
                      DataContext="{Binding ElementName=lvEmployees, Path=SelectedItem}" />
             <Label Name="lbEmployeeName" Content="Employee Name" />
             <TextBox Name="txtEmployeeName" HorizontalAlignment="Stretch"
-                     Height="25" Width="400"  Text="{Binding Path=Name, Mode=OneWay}"
+                     Height="25" Width="400"  Text="{Binding Path=Name, Mode=TwoWay}"
                      DataContext="{Binding ElementName=lvEmployees, Path=SelectedItem}" />
             <Label Name="lbGender" Content="Gender"/>
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Stretch">
@@ -34,11 +35,11 @@
             <DatePicker Name="tbDate" HorizontalAlignment="Stretch"/>
             <Label Name="lbPhone" Content="Phone"/>
             <TextBox Name="txtPhone" HorizontalAlignment="Stretch"
-                     Height="25" Width="400"  Text="{Binding Path=Phone, Mode=OneWay}"
+                     Height="25" Width="400"  Text="{Binding Path=Phone, Mode=TwoWay}"
                      DataContext="{Binding ElementName=lvEmployees, Path=SelectedItem}" />
             <Label Name="lbIDNumer" Content="IDNumber"/>
             <TextBox Name="txtIDNumber" HorizontalAlignment="Stretch"
-                     Height="25" Width="400"  Text="{Binding Path=Idnumber, Mode=OneWay}"
+                     Height="25" Width="400"  Text="{Binding Path=Idnumber, Mode=TwoWay}"
                      DataContext="{Binding ElementName=lvEmployees, Path=SelectedItem}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left" Margin="0,331,0,0" Grid.RowSpan="2" Width="400">

@@ -42,22 +42,25 @@ namespace PRN221_Spr22
 
         //Get Employee from Database
         private void GetEmployees()
-        {
+        { 
             using var context1 = new PRN221_Spr22Context();
             List<Employee_View> employee_Views = new List<Employee_View>();
-            var employees = context1.Employees.ToList();
-            foreach (var employee in employees)
+            //get all emplooyee whi has phone number not null
+            foreach (var emp in context1.Employees)
             {
-                Employee_View employee_view = new Employee_View()
+                if (!String.IsNullOrEmpty(emp.Phone.Trim()))
                 {
-                    Id = employee.Id,
-                    Name = employee.Name,
-                    Gender = employee.Gender,
-                    Dob = employee.Dob?.ToShortDateString(),
-                    Phone = employee.Phone,
-                    Idnumber = employee.Idnumber
-                };
-                employee_Views.Add(employee_view);
+                    Employee_View employee_view = new Employee_View();
+                    employee_Views.Add(new Employee_View
+                    {
+                        Id = emp.Id,
+                        Name = emp.Name,
+                        Gender = emp.Gender,
+                        Dob = emp.Dob.ToString(),
+                        Phone = emp.Phone,
+                        Idnumber = emp.Idnumber
+                    });
+                } 
             }
             lvEmployees.ItemsSource = employee_Views;
         }

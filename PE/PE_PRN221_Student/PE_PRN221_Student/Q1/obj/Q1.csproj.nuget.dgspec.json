@@ -1,24 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "D:\\OneDrive\\Teaching\\PRN221\\PE\\22FallB1\\PE_PRN221_Student\\Q1\\Q1.csproj": {}
+    "C:\\Users\\trath\\Downloads\\C-sharp-dotNET-\\PE\\PE_PRN221_Student\\PE_PRN221_Student\\Q1\\Q1.csproj": {}
   },
   "projects": {
-    "D:\\OneDrive\\Teaching\\PRN221\\PE\\22FallB1\\PE_PRN221_Student\\Q1\\Q1.csproj": {
+    "C:\\Users\\trath\\Downloads\\C-sharp-dotNET-\\PE\\PE_PRN221_Student\\PE_PRN221_Student\\Q1\\Q1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\OneDrive\\Teaching\\PRN221\\PE\\22FallB1\\PE_PRN221_Student\\Q1\\Q1.csproj",
+        "projectUniqueName": "C:\\Users\\trath\\Downloads\\C-sharp-dotNET-\\PE\\PE_PRN221_Student\\PE_PRN221_Student\\Q1\\Q1.csproj",
         "projectName": "Q1",
-        "projectPath": "D:\\OneDrive\\Teaching\\PRN221\\PE\\22FallB1\\PE_PRN221_Student\\Q1\\Q1.csproj",
-        "packagesPath": "C:\\Users\\lephu\\.nuget\\packages\\",
-        "outputPath": "D:\\OneDrive\\Teaching\\PRN221\\PE\\22FallB1\\PE_PRN221_Student\\Q1\\obj\\",
+        "projectPath": "C:\\Users\\trath\\Downloads\\C-sharp-dotNET-\\PE\\PE_PRN221_Student\\PE_PRN221_Student\\Q1\\Q1.csproj",
+        "packagesPath": "C:\\Users\\trath\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\trath\\Downloads\\C-sharp-dotNET-\\PE\\PE_PRN221_Student\\PE_PRN221_Student\\Q1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lephu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\trath\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows"
+          "net6.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -61,8 +65,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -74,7 +77,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

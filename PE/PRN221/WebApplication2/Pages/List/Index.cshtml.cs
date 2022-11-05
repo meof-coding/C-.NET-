@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,48 +35,67 @@ namespace WebApplication2.Pages.List
             //Get instance of service
             var services = _context.Services
                 .Include(s => s.EmployeeNavigation).Select(x => new Service { RoomTitle = x.RoomTitle, FeeType = x.FeeType, Month = x.Month, Year = x.Year, Amount = x.Amount, EmployeeNavigation = x.EmployeeNavigation });
-            //C1: Search if RoomTitle contains SearchString
-            /*
-             * if (!string.IsNullOrEmpty(SearchString))
+            if (!string.IsNullOrEmpty(SearchString))
             {
                 services = services.Where(s => s.RoomTitle.Contains(SearchString));
             }
-            */
-            //C2: SEarch if any service contains SearchString
-            if (!string.IsNullOrEmpty(SearchString))
-            {
-                services = services.Where(s => s.RoomTitle.Contains(SearchString) || s.FeeType.Contains(SearchString));
-            }
-            Service = await services.ToListAsync();
+            //get all service where month = 3 and year = 2022
+            Service =await services.Where(s => s.Month == 3 && s.Year == 2022).ToListAsync();
         }
         public async Task OnPostAsync()
         {
+            /*Read Json File Import*/
             var file = Path.Combine(_environment.ContentRootPath, "Uploads", JsonFile.FileName);
             using (var fileStream = new FileStream(file, FileMode.Create))
             {
                 await JsonFile.CopyToAsync(fileStream);
             }
             StreamReader streamReader = new StreamReader(file);
-            string data = streamReader.ReadToEnd();
-            Service = JsonConvert.DeserializeObject<List<Service>>(data);
-            foreach (var item in Service)
+            string xml = streamReader.ReadToEnd();
+            //Service = JsonConvert.DeserializeObject<List<Service>>(data);
+            //foreach (var item in Service)
+            //{
+            //    Service services = new Service()
+            //    {
+            //        RoomTitle = item.RoomTitle,
+            //        //Id = item.Id,
+            //        Month = item.Month,
+            //        Year = item.Year,
+            //        FeeType = item.FeeType,
+            //        Amount = item.Amount,
+            //        PaymentDate = item.PaymentDate,
+            //        Employee = item.Employee,
+            //    };
+            /*Read XML File Import*/
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            XmlNode root = doc.DocumentElement;
+            var services = root.SelectNodes("descendant::Service");
+            foreach (XmlNode item in services)
             {
-                Service services = new Service()
+                Service service = new Service()
                 {
-                    RoomTitle = item.RoomTitle,
+                    RoomTitle = item["RoomTitle"].InnerText,
                     //Id = item.Id,
-                    Month = item.Month,
-                    Year = item.Year,
-                    FeeType = item.FeeType,
-                    Amount = item.Amount,
-                    PaymentDate = item.PaymentDate,
-                    Employee = item.Employee,
+                    Month = Convert.ToByte(item["Month"].InnerText) ,
+                    Year = Convert.ToInt32(item["Year"].InnerText),
+                    FeeType = item["FeeType"].InnerText,
+                    Amount = Convert.ToDecimal(item["Amount"].InnerText),
                 };
-                _context.Services.Add(services);
-                await _context.SaveChangesAsync();
-            }
+                if (!string.IsNullOrEmpty(item["PaymentDate"].InnerText))
+                {
+                    service.PaymentDate = DateTime.Parse(item["PaymentDate"].InnerText); 
+                };
+                if (!string.IsNullOrEmpty(item["Employee"].InnerText))
+                {
+                    service.Employee = Convert.ToInt32(item["Employee"].InnerText);
+                };
+                _context.Services.Add(service);
+            };
+            await _context.SaveChangesAsync();
             Service = await _context.Services
-                .Include(s => s.EmployeeNavigation).ToListAsync();
+             .Include(s => s.EmployeeNavigation).ToListAsync();
         }
+        //Service = await _context.Services.Include(s => s.EmployeeNavigation).ToListAsync();
     }
 }

@@ -94,7 +94,7 @@ namespace WebApplication2.Pages.List
             };
             await _context.SaveChangesAsync();
             Service = await _context.Services
-             .Include(s => s.EmployeeNavigation).ToListAsync();
+             .Include(s => s.EmployeeNavigation).Where(s => s.Month == 3 && s.Year == 2022).ToListAsync();
         }
         //Service = await _context.Services.Include(s => s.EmployeeNavigation).ToListAsync();
     }

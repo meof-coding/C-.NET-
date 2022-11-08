@@ -853,3 +853,4 @@ C:\Users\trath\Downloads\C-sharp-dotNET-\Razor PRN221\Lab2\bin\Debug\net6.0\refs
 C:\Users\trath\Downloads\C-sharp-dotNET-\Razor PRN221\Lab2\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\trath\Downloads\C-sharp-dotNET-\Razor PRN221\Lab2\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 C:\Users\trath\Downloads\C-sharp-dotNET-\Razor PRN221\Lab2\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\trath\Downloads\C-sharp-dotNET-\Razor PRN221\Lab2\bin\Debug\net6.0\AutoMapper.dll

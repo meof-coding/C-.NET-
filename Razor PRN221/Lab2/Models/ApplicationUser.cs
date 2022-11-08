@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Lab2.Data;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lab2.Models
@@ -8,8 +9,7 @@ namespace Lab2.Models
         public string DisplayName { get; set; }
 
         public string Avatar { get; set; }
-
-        public virtual ICollection<Room> Rooms { get; set; }
+         
         [InverseProperty("FromUser")]
         public virtual ICollection<Message> FromUser { get; set; }
 
@@ -17,5 +17,8 @@ namespace Lab2.Models
         public virtual ICollection<Message> ToUser { get; set; }
 
         public virtual ICollection<UserRoom> UserRoom { get; set; }
+
+        [NotMapped]
+        public string ConnectionId { get; set; }
     }
 }

@@ -147,13 +147,7 @@ namespace Lab2.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserAccountId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserAccountId");
 
                     b.ToTable("Rooms", "Identity");
                 });
@@ -397,17 +391,6 @@ namespace Lab2.Data.Migrations
                     b.Navigation("ToUser");
                 });
 
-            modelBuilder.Entity("Lab2.Models.Room", b =>
-                {
-                    b.HasOne("Lab2.Models.ApplicationUser", "UserAccount")
-                        .WithMany("Rooms")
-                        .HasForeignKey("UserAccountId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserAccount");
-                });
-
             modelBuilder.Entity("Lab2.Models.UserRoom", b =>
                 {
                     b.HasOne("Lab2.Models.Room", "Room")
@@ -479,8 +462,6 @@ namespace Lab2.Data.Migrations
             modelBuilder.Entity("Lab2.Models.ApplicationUser", b =>
                 {
                     b.Navigation("FromUser");
-
-                    b.Navigation("Rooms");
 
                     b.Navigation("ToUser");
 

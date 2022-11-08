@@ -1,4 +1,5 @@
 using Lab2.Data;
+using Lab2.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,12 +18,13 @@ namespace Lab2.Pages
             _applicationDbContext = applicationDbContext;
         }
         [BindProperty]
-        public List<IdentityUser> _users { get; set; }
-       
+        public List<ApplicationUser> _users { get; set; }
+        public ApplicationUser CurrentUser { get; set; }
         public void OnGet()
         {
+            CurrentUser = _applicationDbContext.Users.FirstOrDefault(u => u.UserName.Equals(User.Identity.Name));
             //get all user except this login user 
-            _users = _applicationDbContext.Users.Where(u => u.UserName != User.Identity.Name).ToList();
+            _users = _applicationDbContext.Users.Where(u => u.UserName.Equals(User.Identity.Name)==false).ToList();
         }
     }
 }

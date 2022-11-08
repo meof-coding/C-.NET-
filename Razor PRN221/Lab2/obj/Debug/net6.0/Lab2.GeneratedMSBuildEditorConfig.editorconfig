@@ -11,7 +11,7 @@ build_property.RootNamespace = Lab2
 build_property.ProjectDir = C:\Users\trath\Downloads\C-sharp-dotNET-\Razor PRN221\Lab2\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\trath\Downloads\C-sharp-dotNET-\Razor PRN221\Lab2
 build_property._RazorSourceGeneratorDebug = 
 

@@ -3,373 +3,157 @@
 @{
     ViewData["Title"] = "Chat";
 }
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-lg-12">
-            <div class="card chat-app">
-                <div id="plist" class="people-list">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-search"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Search...">
-                    </div>
-                    <ul class="list-unstyled chat-list mt-2 mb-0">
-                       @* <li class="clearfix active">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">Aiden Chavez</div>
-                                <div class="status"> <i class="fa fa-circle online offline"></i> left 7 mins ago </div>
-                            </div>
-                        </li>*@
-                        @foreach (var item in @Model._users)
-                        {
-                            <li class="clearfix">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">@item.UserName</div>
-                                <div class="status"> <i class="fa fa-circle online"></i> </div>
-                            </div>
-                        </li>
-                        }
-                    </ul>
-                </div>
-                <div class="chat">
-                    <div class="chat-header clearfix">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
-                                </a>
-                                <div class="chat-about">
-                                    <h6 class="m-b-0">Aiden Chavez</h6>
-                                    <small>Last seen: 2 hours ago</small>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 hidden-sm text-right">
-                                <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
-                                <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
-                                <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
-                                <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chat-history">
-                        <ul class="m-b-0">
-                            @* <li class="clearfix">
-                                <div class="message-data text-right">
-                                    <span class="message-data-time">10:10 AM, Today</span>
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
-                                </div>
-                                <div class="message other-message float-right"> Hi Aiden, how are you? How is the project coming along? </div>
-                            </li>
-                            <li class="clearfix">
-                                <div class="message-data">
-                                    <span class="message-data-time">10:12 AM, Today</span>
-                                </div>
-                                <div class="message my-message">Are we meeting today?</div>
-                            </li>
-                            <li class="clearfix">
-                                <div class="message-data">
-                                    <span class="message-data-time">10:15 AM, Today</span>
-                                </div>
-                                <div class="message my-message">Project has been already finished and I have results to show you.</div>
-                            </li> *@
-                        </ul>
-                    </div>
-                    <div class="chat-message clearfix">
-                        <div class="input-group mb-0">
-                            <div class="input-group-prepend">
-                                <span style="cursor:pointer" class="input-group-text" id="sendButton"><i class="fa fa-send"></i></span>
-                            </div>
-                            <input type="hidden" id="senderInput" value="@User.Identity.Name" />
-                            <input type="text" class="form-control" placeholder="Enter text here..." id="messageInput">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="profile d-flex flex-column justify-content-between py-4">
+    <div class="d-flex flex-column align-items-center">
+        <i class="fa-solid fa-bars fa-2x"></i>
+        <img class="mt-5" src="@Model.CurrentUser.Avatar" width="35" style="border-radius:50%" />
     </div>
+
+    <div class="d-flex flex-column align-items-center">
+        <i class="fa-regular fa-comment fa-2x my-3 py-2 px-2  active"></i>
+        <i class="fa-regular fa-user fa-2x my-3 py-2 px-2 "></i>
+        <i class="fa-solid fa-circle fa-2x my-3 mb-4 px-2 px-2" style="color:#ffc800"></i>
+    </div>
+    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+        <button type="submit" class="nav-link btn btn-link text-dark"> <i class="fa-solid fa-power-off fa-2x py-2 px-2 mb-4"></i></button>
+    </form>
+</div>
+<div class="chat-container">
+    <div class="list-friend">
+        <div class="chat-header d-flex align-items-center justify-content-between">
+            <h2 style="font-weight:900">Chat</h2>
+            <button class="create-chat d-flex align-items-center px-3 py-3"><i class="fa-solid fa-plus mr-2"></i> <span>Create New Chat</span></button>
+        </div>
+        <form class="mt-3" action="">
+            <input type="text" class="input-search" placeholder="search here..." />
+            <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass "></i></button>
+        </form>
+        <div class="user-list mt-5 pt-3">
+            @foreach (var item in @Model._users)
+            {
+                <div class="user d-flex align-items-center" id="@item.Id">
+                    <img src="@item.Avatar" alt="avatar" width="60" class="avatar mr-2">
+                    <h5 style="font-weight:700">@item.UserName.Substring(0, item.UserName.IndexOf("@", StringComparison.Ordinal))</h5>
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="chat-frame"></div>
+
 </div>
 <script src="~/js/signalr/dist/browser/signalr.js" asp-append-version="true"></script>
 <script src="~/js/moment/moment.min.js" asp-append-version="true"></script>
 <script src="~/js/chat.js"></script>
-
-<style type="text/css">
-    body {
-        background-color: #f4f7f6;
-        margin-top: 20px;
+<style>
+    .active {
+        background: linear-gradient(92.68deg, white -67%, rgb(42, 139, 242) 100%);
+        border-radius: 30%;
     }
 
-    .card {
-        background: #fff;
-        transition: .5s;
-        border: 0;
-        margin-bottom: 30px;
-        border-radius: .55rem;
-        position: relative;
-        width: 100%;
-        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
-        height:80vh;
+    .avatar {
+        border-radius: 50%;
     }
 
-    .chat-app .people-list {
-        width: 280px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        padding: 20px;
-        z-index: 7;
-        height:100%;
-        over-flow:scroll;
+    .user-list {
+        cursor: pointer;
+    }
+    .chat-user{
     }
 
-    ..people-list::-webkit-scrollbar {
-            display: none;
-    }
-
-    .chat-app .chat {
-        margin-left: 280px;
-        border-left: 1px solid #eaeaea;
-        height:100%;
-        display:flex;
-        flex-direction:column;
+    .chat-header {
+        display: flex;
+        height: 90px;
+        -webkit-box-pack: justify;
         justify-content: space-between;
+        position: relative;
+        -webkit-box-align: center;
+        align-items: center;
     }
 
-    .people-list {
-        -moz-transition: .5s;
-        -o-transition: .5s;
-        -webkit-transition: .5s;
-        transition: .5s;
+    .search-btn {
+        background: none;
+        border: none;
+        position: absolute;
+        right: 50px;
+        top: 16%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
     }
 
-        .people-list .chat-list li {
-            padding: 10px 15px;
-            list-style: none;
-            border-radius: 3px
-        }
-
-            .people-list .chat-list li:hover {
-                background: #efefef;
-                cursor: pointer
-            }
-
-            .people-list .chat-list li.active {
-                background: #efefef
-            }
-
-            .people-list .chat-list li .name {
-                font-size: 15px
-            }
-
-        .people-list .chat-list img {
-            width: 45px;
-            border-radius: 50%
-        }
-
-        .people-list img {
-            float: left;
-            border-radius: 50%
-        }
-
-        .people-list .about {
-            float: left;
-            padding-left: 8px
-        }
-
-        .people-list .status {
-            color: #999;
-            font-size: 13px
-        }
-
-    .chat .chat-header {
-        padding: 15px 20px;
-        border-bottom: 2px solid #f4f7f6
+    .profile {
+        height: 100%;
+        position: fixed;
+        width: 96px;
+        align-items: center;
+        box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+        border-radius: 2rem;
+        top: 0px;
+        left: 0px;
+        z-index: 9;
     }
 
-        .chat .chat-header img {
-            float: left;
-            border-radius: 40px;
-            width: 40px
-        }
-
-        .chat .chat-header .chat-about {
-            float: left;
-            padding-left: 10px
-        }
-
-    .chat .chat-history {
-        padding: 20px;
-        height:100%;
-        border-bottom: 2px solid #fff
+    .input-search {
+        width: 95%;
+        outline: none;
+        border: none;
+        background: linear-gradient(180deg,#f3f3fb,#fdfbfd);
+        border-radius: 32px;
+        padding: 16px;
+        font-size: 16px;
+        transition: all .2s ease-in;
+        position: absolute;
     }
 
-        .chat .chat-history ul {
-            padding: 0
-        }
-
-            .chat .chat-history ul li {
-                list-style: none;
-                margin-bottom: 30px
-            }
-
-                .chat .chat-history ul li:last-child {
-                    margin-bottom: 0px
-                }
-
-        .chat .chat-history .message-data {
-            margin-bottom: 15px
-        }
-
-            .chat .chat-history .message-data img {
-                border-radius: 40px;
-                width: 40px
-            }
-
-        .chat .chat-history .message-data-time {
-            color: #434651;
-            padding-left: 6px
-        }
-
-        .chat .chat-history .message {
-            color: #444;
-            padding: 18px 20px;
-            line-height: 26px;
-            font-size: 16px;
-            border-radius: 7px;
-            display: inline-block;
-            position: relative
-        }
-
-            .chat .chat-history .message:after {
-                bottom: 100%;
-                left: 7%;
-                border: solid transparent;
-                content: " ";
-                height: 0;
-                width: 0;
-                position: absolute;
-                pointer-events: none;
-                border-bottom-color: #fff;
-                border-width: 10px;
-                margin-left: -10px
-            }
-
-        .chat .chat-history .my-message {
-            background: #efefef
-        }
-
-            .chat .chat-history .my-message:after {
-                bottom: 100%;
-                left: 30px;
-                border: solid transparent;
-                content: " ";
-                height: 0;
-                width: 0;
-                position: absolute;
-                pointer-events: none;
-                border-bottom-color: #efefef;
-                border-width: 10px;
-                margin-left: -10px
-            }
-
-        .chat .chat-history .other-message {
-            background: #e8f1f3;
-            text-align: right
-        }
-
-            .chat .chat-history .other-message:after {
-                border-bottom-color: #e8f1f3;
-                left: 93%
-            }
-
-    .chat .chat-message {
-        padding: 20px
+    .create-chat {
+        border-radius: 16px;
+        background: linear-gradient(92.68deg, rgb(124, 184, 247) 0%, rgb(42, 139, 242) 100%);
+        box-shadow: rgb(42 139 242 / 15%) 6px 6px 25px, rgb(42 139 242 / 5%) 4px 4px 25px, rgb(42 139 242 / 15%) 10px 6px 25px;
+        border: none;
+        color: white;
     }
 
-    .online,
-    .offline,
-    .me {
-        margin-right: 2px;
-        font-size: 8px;
-        vertical-align: middle
+    .chat-container {
+        display: flex;
+        width: calc(100% - 100px);
+        position: absolute;
+        left: 100px;
+        top: 80px;
+        height: calc(100% - 80px);
+        padding: 0px 10px;
+        overflow: hidden;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
     }
 
-    .online {
-        color: #86c541
+    .list-friend {
+        display: flex;
+        height: 100%;
+        width: 50%;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px;
+        border-radius: 16px;
+        position: absolute;
+        left: 0px;
     }
 
-    .offline {
-        color: #e47297
-    }
-
-    .me {
-        color: #1d8ecd
-    }
-
-    .float-right {
-        float: right
-    }
-
-    .clearfix:after {
-        visibility: hidden;
-        display: block;
-        font-size: 0;
-        content: " ";
-        clear: both;
-        height: 0
-    }
-
-    @@media only screen and (max-width: 767px) {
-        .chat-app .people-list {
-            height: 465px;
-            width: 100%;
-            overflow-x: auto;
-            background: #fff;
-            left: -400px;
-            display: none
-        }
-
-            .chat-app .people-list.open {
-                left: 0
-            }
-
-        .chat-app .chat {
-            margin: 0
-        }
-
-            .chat-app .chat .chat-header {
-                border-radius: 0.55rem 0.55rem 0 0
-            }
-
-        .chat-app .chat-history {
-            height: 300px;
-            overflow-x: auto
-        }
-    }
-
-    @@media only screen and (min-width: 768px) and (max-width: 992px) {
-        .chat-app .chat-list {
-            height: 650px;
-            overflow-x: auto
-        }
-
-        .chat-app .chat-history {
-            height: 600px;
-            overflow-x: auto
-        }
-    }
-
-    @@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-        .chat-app .chat-list {
-            height: 480px;
-            overflow-x: auto
-        }
-
-        .chat-app .chat-history {
-            height: calc(100vh - 350px);
-            overflow-x: auto
-        }
+    .chat-frame {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px;
+        border-radius: 16px;
+        position: absolute;
+        background: white;
+        left: 50%;
+        width: 50%;
     }
 </style>
+

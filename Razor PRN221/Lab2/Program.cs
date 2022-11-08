@@ -1,5 +1,6 @@
 using DemoRealTimeApp.Hubs;
 using Lab2.Data;
+using Lab2.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SignalR;
@@ -31,9 +32,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddSingleton<IUserIdProvider, EmailBasedUserIdProvider>();
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-
+services.AddIdentity<ApplicationUser, IdentityRole>()
+           .AddEntityFrameworkStores<ApplicationDbContext>()
+           .AddDefaultUI()
+           .AddDefaultTokenProviders();
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Password settings.
@@ -55,18 +57,8 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.User.RequireUniqueEmail = false;
 });
 
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    // Cookie settings
-    options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
-    options.LoginPath = "/Identity/Account/Login";
-    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
-    options.SlidingExpiration = true;
-});
-
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddSignalR(); var cookiePolicyOptions = new CookiePolicyOptions
 {
     MinimumSameSitePolicy = SameSiteMode.Strict,

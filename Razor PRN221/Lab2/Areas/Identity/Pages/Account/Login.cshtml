@@ -9,7 +9,48 @@
     <div class="d-flex align-items-center justify-content-center">
         <h1 class="chat-tittle" >Chat</h1>
         <img src="~/img/speech-bubble.gif" width="60" height="60"/>
+    </div><form>
+  <!-- Email input -->
+  <div class="form-outline  ">
+       <label asp-for="Input.Email" class="form-label"></label>
+       <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+       <span asp-validation-for="Input.Email" class="text-danger"></span> 
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline ">
+                    <label asp-for="Input.Password" class="form-label"></label>
+        <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+  </div>
+
+  <!-- 2 column grid layout for inline styling -->
+  <div class="row mb-4">
+    <div class="col d-flex justify-content-center">
+      <!-- Checkbox -->
+      <div class="form-check">
+   <label asp-for="Input.RememberMe" class="form-label">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+      </div>
     </div>
+
+    <div class="col">
+      <!-- Simple link -->
+   <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+    </div>
+  </div>
+
+  <!-- Submit button -->
+ <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+  <!-- Register buttons -->
+  <div class="text-center">
+    <p>Not a member?         <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a></p>
+    <p>or </p> 
+  </div>
+</form>
+
 
     @{
         if ((Model.ExternalLogins?.Count ?? 0) == 0)
@@ -27,18 +68,15 @@
         else
         {
             <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post"
-        class="form-horizontal mt-4">
+        class="form-horizontal ">
                         @foreach (var provider in Model.ExternalLogins)
                         {
                             <button type="submit" class="btn btn-primary d-flex justify-content-between align-items-center" name="provider" style="width:335px" value="@provider.Name"
                         title="Log in using your @provider.DisplayName account"> <span>Log in with @provider.DisplayName</span> <img src="~/img/@(provider.DisplayName.Equals("Facebook")?"facebook":"google").png" width="30"/></button>
                         }
             </form>
+        } 
         }
-           <button class="btn btn-primary d-flex justify-content-between align-items-center" name="provider" style="width:335px" 
-                        title="Log in as a guest"> <span>Log in as a guest </span> <img src="~/img/user.png" width="30"/></button>
-                       
-    }
 
 </div>
 
@@ -49,7 +87,7 @@
 <style>
     .container-card {
         width: clamp(50%, 700px, 90%);
-        height: 500px;
+        height: 580px;
         background: var(--bg-widget);
         position: absolute;
         padding: 32px;

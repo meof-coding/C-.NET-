@@ -1,4 +1,5 @@
-﻿using Lab2.Models;
+﻿using Lab2.Data;
+using Lab2.Models;
 using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,12 @@ namespace DemoRealTimeApp.Hubs
     {
         //define a dictionary to store the userid.
         private static Dictionary<string, List<string>> NtoIdMappingTable = new Dictionary<string, List<string>>();
+        private ApplicationDbContext _applicationDbContext;
+
+        public ChatHub(ApplicationDbContext applicationDbContext)
+        {
+            _applicationDbContext = applicationDbContext;
+        }
 
         public override async Task OnConnectedAsync()
         {
@@ -66,8 +73,17 @@ namespace DemoRealTimeApp.Hubs
                 await Clients.User(userId.FirstOrDefault()).SendAsync("ReceiveMessage", sender, message);
             }
             string name = Context.User.Identity.Name;
+            //Save the message, sender, receiver and message to database
+            //await SaveMessage(sender, receiver, name, message);
             return Clients.User(name).SendAsync("ReceiveMessage", message);
+
         }
+
+        //private Task SaveMessage(string sender, string receiver, string? name, string message)
+        //{
+        //    //find user id identity by name 
+        //    var senderId = _applicationDbContext.Users.FirstOrDefault(u=> u.)?.Id;
+        //}
 
         //public void SetUserName(string username)
         //{

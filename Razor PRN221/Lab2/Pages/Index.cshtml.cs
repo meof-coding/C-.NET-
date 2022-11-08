@@ -16,7 +16,8 @@ namespace Lab2.Pages
 
         public void OnGet()
         {
-
+            //redirect to Chat page
+            Response.Redirect("/Chat");
         }
     }
 }

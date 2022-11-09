@@ -20,5 +20,8 @@ namespace Lab2.Models
 
         [NotMapped]
         public string ConnectionId { get; set; }
+        
+        [NotMapped]
+        public int CurrentRoomId { get; set; }
     }
 }

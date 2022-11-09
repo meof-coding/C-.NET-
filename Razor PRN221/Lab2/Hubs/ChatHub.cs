@@ -24,7 +24,8 @@ namespace DemoRealTimeApp.Hubs
         public readonly static List<ApplicationUser> _Users = new List<ApplicationUser>();
         private readonly static Dictionary<string, string> _ConnectionsMap = new Dictionary<string, string>();
         public readonly static List<ApplicationUser> _Connections = new List<ApplicationUser>();
-
+        private Room room = new Room();
+        private Room roomV2 = new Room();
         public ChatHub(ApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
@@ -41,6 +42,7 @@ namespace DemoRealTimeApp.Hubs
             }
             var user = _applicationDbContext.Users.Where(u => u.UserName == Context.User.Identity.Name).FirstOrDefault();
             user.ConnectionId = Context.ConnectionId;
+            user.CurrentRoomId = 0;
             _Connections.Add(user);
             _ConnectionsMap.Add(Context.User.Identity.Name, Context.ConnectionId);
             await Clients.All.SendAsync("UserConnected", _Connections);
@@ -53,19 +55,129 @@ namespace DemoRealTimeApp.Hubs
             await base.OnDisconnectedAsync(exception);
         }
 
-        public async Task SendPrivateMessage(string receiver, string message)
+        public int CreateRoom(string roomName, string userSelected)
         {
-            Room room = new Room();
-            Room roomV2 = new Room();
+            try
+            {
+                // Create and save chat room in database
+                var user = _applicationDbContext.Users.Where(u => u.UserName == Context.User.Identity.Name).FirstOrDefault();
+                var room = new Room()
+                {
+                    Name = roomName
+                };
+                var result = _applicationDbContext.Rooms.Add(room);
+                _applicationDbContext.SaveChanges();
+                room.Id = room.Id;
+                if (room != null)
+                {
+                    char[] spearatorElement = { ';' };
+                    String[] arrayUserSelected = userSelected.Split(spearatorElement);
+                    for (var i = 0; i < arrayUserSelected.Length; i++)
+                    {
+                        if (arrayUserSelected[0] == user.Id)
+                        {
+                            this.AddUserToRoom(arrayUserSelected[0], room.Id, (int)Role.Admin);
+                        }
+                        else
+                        {
+                            this.AddUserToRoom(arrayUserSelected[0], room.Id, (int)Role.Participant);
+                        }
+
+
+                        string userId;
+                        if (_ConnectionsMap.TryGetValue(arrayUserSelected[1], out userId))
+                        {
+                            Clients.Client(userId).SendAsync("addChatRoom", room);
+                        }
+                    }
+                }
+                return room.Id;
+            }
+            catch (Exception ex)
+            {
+                Clients.Caller.SendAsync("onError", $"Couldn't create chat room:{ex.Message}");
+            }
+            return 0;
+        }
+
+        public void AddUserToRoom(string userId, int roomId, int role = 0)
+        {
+            try
+            {
+                // Create and save chat room in database
+                // var user = _applicationDbContext.Users.Where(u => u.UserName == IdentityName).FirstOrDefault();
+                var user = new UserRoom()
+                {
+                    UserId = userId,
+                    RoomId = roomId,
+                    Role = role,
+                };
+                _applicationDbContext.UserRooms.Add(user);
+                _applicationDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Clients.Caller.SendAsync("onError", $"Couldn't create chat room: {ex.Message} ");
+            }
+        }
+
+        //public Task JoinGroup(string groupid)
+        //{
+        //    var user = _Connections.Where(u => u.UserName == Context.User.Identity.Name).FirstOrDefault();
+        //    try
+        //    {
+        //        if (!user.CurrentRoomId.ToString().Equals(groupid))
+        //        {
+        //            // Remove user from others list
+        //            if (!string.IsNullOrEmpty(user.CurrentRoomId.ToString()))
+        //                Clients.OthersInGroup(user.CurrentRoomId.ToString()).SendAsync("RemoveUser",user.DisplayName);
+
+        //            // Join to new chat room
+        //            Leave(user.CurrentRoomId);
+        //            Groups.AddToGroupAsync(Context.ConnectionId, groupid);
+        //            user.CurrentRoomId = Convert.ToInt32(groupid);
+
+        //            // Tell others to update their list of users
+        //            Clients.OthersInGroup(groupid.ToString()).SendAsync("addUser",user.DisplayName);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw;
+        //    }
+        //}
+
+        private void Leave(int roomId)
+        {
+            Groups.RemoveFromGroupAsync(Context.ConnectionId, roomId.ToString());
+        }
+
+        public async Task GetMessageHistory(string receiver)
+        {
             var userSender = _applicationDbContext.Users.Where(u => u.UserName == Context.User.Identity.Name).FirstOrDefault();
             var userReceiver = _applicationDbContext.Users.Where(u => u.UserName == receiver).FirstOrDefault();
-            var roomName = Convert.ToBase64String(SHA1.Create().ComputeHash(Encoding.ASCII.GetBytes($"{userReceiver.DisplayName}{receiver}")));
-            var roomNamev2 = Convert.ToBase64String(SHA1.Create().ComputeHash(Encoding.ASCII.GetBytes($"{receiver}{userReceiver.DisplayName}")));
+            var roomName = Convert.ToBase64String(SHA1.Create().ComputeHash(Encoding.ASCII.GetBytes($"{userSender.Email}{receiver}")));
+            var roomNamev2 = Convert.ToBase64String(SHA1.Create().ComputeHash(Encoding.ASCII.GetBytes($"{receiver}{userSender.Email}")));
+            room = _applicationDbContext.Rooms.Where(room => (room.Name.Equals($"P{roomName}"))).FirstOrDefault();
+            roomV2 = _applicationDbContext.Rooms.Where(r => r.Name.Equals($"P{roomNamev2}")).FirstOrDefault();
+            var currentRoom = room != null ? room : roomV2;
+            //get list msg by roomId
+            var msgHistory = _applicationDbContext.Messages.Where(m => m.ToRoom == currentRoom).Select((message) => new Message { FromUserId = message.FromUserId, ToUserId = message.ToUserId, Content = message.Content }).ToList();
+            await Clients.Caller.SendAsync("GetHistory", msgHistory, userSender.Id, userSender.Avatar, userReceiver.Id, userReceiver.Avatar);
+        }
+
+        public async Task SendPrivateMessage(string receiver, string message)
+        {
+            var userSender = _applicationDbContext.Users.Where(u => u.UserName == Context.User.Identity.Name).FirstOrDefault();
+            var userReceiver = _applicationDbContext.Users.Where(u => u.UserName == receiver).FirstOrDefault();
+            var roomName = Convert.ToBase64String(SHA1.Create().ComputeHash(Encoding.ASCII.GetBytes($"{userSender.Email}{receiver}")));
+            var roomNamev2 = Convert.ToBase64String(SHA1.Create().ComputeHash(Encoding.ASCII.GetBytes($"{receiver}{userSender.Email}")));
 
             room = _applicationDbContext.Rooms.Where(room => (room.Name.Equals($"P{roomName}"))).FirstOrDefault();
             roomV2 = _applicationDbContext.Rooms.Where(r => r.Name.Equals($"P{roomNamev2}")).FirstOrDefault();
 
-            if (room != null && roomV2 != null)
+            if (room == null && roomV2 == null)
             {
                 Room newRoom = new Room()
                 {
@@ -90,21 +202,21 @@ namespace DemoRealTimeApp.Hubs
                );
             }
 
+            var currentRoom = room != null ? roomName : roomNamev2;
+
             Message msg = new Message()
             {
                 Content = Regex.Replace(message, @"(?i)<(?!img|a|/a|/img).*?>", String.Empty),
                 Timestamp = DateTime.Now.Ticks.ToString(),
                 FromUser = userSender,
                 ToUser = userReceiver,
-                ToRoom = _applicationDbContext.Rooms.FirstOrDefault(room => room.Name.Equals($"P{roomName}"))
+                ToRoom = _applicationDbContext.Rooms.FirstOrDefault(r => r.Name.Equals($"P{currentRoom}"))
             };
             _applicationDbContext.Messages.Add(msg);
             _applicationDbContext.SaveChanges();
             string connectionId;
             if (_ConnectionsMap.TryGetValue(userReceiver.UserName, out connectionId))
             {
-                // Who is the sender;
-                var sender = _Connections.Where(u => u.UserName == userReceiver.UserName).First();
 
                 // Send the message
                 await Clients.Caller.SendAsync("SendMsg", msg.Content, msg.FromUser.Avatar);

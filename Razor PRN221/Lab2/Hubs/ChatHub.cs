@@ -55,8 +55,16 @@ namespace DemoRealTimeApp.Hubs
             await base.OnDisconnectedAsync(exception);
         }
 
-        public int CreateRoom(string roomName, string userSelected)
+        public IEnumerable<UserRoom> GetRooms(string userId)
         {
+            List<UserRoom> _UsersRoom = _applicationDbContext.UserRooms.Where(u => u.UserId == userId).Select(x=>x.Id).ToList();
+            }
+            return _UsersRoom.Where(u => u.UserId == userId);
+        }
+
+        public Task CreateRoom(string roomName, string userSelected)
+        {
+            Room myRoom = new Room();
             try
             {
                 // Create and save chat room in database
@@ -67,40 +75,41 @@ namespace DemoRealTimeApp.Hubs
                 };
                 var result = _applicationDbContext.Rooms.Add(room);
                 _applicationDbContext.SaveChanges();
-                room.Id = room.Id;
+                myRoom = room;
                 if (room != null)
                 {
                     char[] spearatorElement = { ';' };
-                    String[] arrayUserSelected = userSelected.Split(spearatorElement);
-                    for (var i = 0; i < arrayUserSelected.Length; i++)
+                    List<String> arrayUserSelected = userSelected.Split(spearatorElement).ToList();
+                    //add new string to arrayUserSelected
+                    arrayUserSelected.Add(user.Id);
+                    for (var i = 0; i < arrayUserSelected.Count; i++)
                     {
-                        if (arrayUserSelected[0] == user.Id)
+                        if (i == arrayUserSelected.Count - 1)
                         {
-                            this.AddUserToRoom(arrayUserSelected[0], room.Id, (int)Role.Admin);
+                            this.AddUserToRoom(arrayUserSelected[i], room.Id, (int)Role.Admin);
                         }
                         else
                         {
-                            this.AddUserToRoom(arrayUserSelected[0], room.Id, (int)Role.Participant);
+                            this.AddUserToRoom(arrayUserSelected[i], room.Id, (int)Role.Participant);
+
+                            string connectionId;
+                            if (_ConnectionsMap.TryGetValue(_applicationDbContext.Users.Where(u => u.Id == arrayUserSelected[i]).FirstOrDefault().UserName, out connectionId))
+                            {
+                                Clients.Client(connectionId).SendAsync("addChatRoom", room.Name, room.Id);
+                            }
                         }
 
-
-                        string userId;
-                        if (_ConnectionsMap.TryGetValue(arrayUserSelected[1], out userId))
-                        {
-                            Clients.Client(userId).SendAsync("addChatRoom", room);
-                        }
                     }
                 }
-                return room.Id;
             }
             catch (Exception ex)
             {
                 Clients.Caller.SendAsync("onError", $"Couldn't create chat room:{ex.Message}");
             }
-            return 0;
+            return Clients.Caller.SendAsync("addChatRoom", myRoom.Name, myRoom.Id);
         }
 
-        public void AddUserToRoom(string userId, int roomId, int role = 0)
+        public void AddUserToRoom(string userId, int roomId, int role)
         {
             try
             {

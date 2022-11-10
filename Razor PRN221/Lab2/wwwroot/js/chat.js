@@ -6,7 +6,7 @@ $(document).ready(function () {
   var connection = new signalR.HubConnectionBuilder()
     .withUrl("/chatHub")
     .build();
-    // $('select').selectpicker();
+  // $('select').selectpicker();
   //Disable the send button until connection is established.
   connection.on("UserConnected", function (list) {
     debugger;
@@ -24,6 +24,34 @@ $(document).ready(function () {
       if (matchingItems.length === 0) {
         result.push(e);
       }
+    });
+
+    //init array
+    var userArr = "";
+    $(".btn-add").click(function () {
+      debugger;
+      //remove class btn-primary
+      $(this).removeClass("btn-primary");
+      //add class btn-success
+      $(this).addClass("btn-success");
+      var added = `<i class="fa-solid fa-check"></i> Added`;
+      $(this).html(added);
+      //get this id
+      var id = $(this).attr("id");
+      //append id to userArr
+      userArr += id + ";";
+    });
+
+    $(".btn-create-group").click(function () {
+      //if last character is ";" then remove it
+      if (userArr.charAt(userArr.length - 1) == ";") {
+        userArr = userArr.substring(0, userArr.length - 1);
+      }
+      connection
+        .invoke("CreateRoom", $(".grp-name").val(), userArr)
+        .catch(function (err) {
+          return console.error(err.toString());
+        });
     });
 
     //filter fiv .user in .user-list div where span.html() = connectionId
@@ -90,16 +118,16 @@ $(document).ready(function () {
         $(".input-msg").on("change", function (e) {
           document.getElementById("sendButton").disabled = false;
         });
-
+        $(".chat-msg").animate(
+          { scrollTop: $(".chat-msg")[0].scrollHeight },
+          0
+        );
         connection
           .invoke("GetMessageHistory", receiverEmail.html())
           .catch(function (err) {
             return console.error(err.toString());
           });
-        $(".chat-msg").animate(
-          { scrollTop: $(".chat-msg")[0].scrollHeight },
-          0
-        );
+
         //  e.preventDefault();
       });
     });
@@ -131,6 +159,96 @@ $(document).ready(function () {
     }
   );
 
+  connection.on("GetMessageGroupHistory", function (listMsg, reeceiverAvatar) {
+    debugger;
+    //for each object in listMsg
+    var sendMessage = "";
+    $.each(listMsg, function (i, e) {
+      if (e.fromUserId == senderId) {
+        sendMessage = `<div class="d-flex justify-content-end my-msg">
+    <img width="40" height="40" src="${senderAvatar}">
+    <div class="msg ">
+    <p class=" my-0 py-1">${e.content}</p>
+    </div></div>`;
+      } else {
+        sendMessage = `<div class="d-flex justify-content-start">
+          <img width="40" height="40" src="${reeceiverAvatar}">
+          <div class="msg ">
+          <p class="text-white my-0 py-1">${e.content}</p>
+          </div></div>`;
+      }
+      $(".chat-msg").append(sendMessage);
+    });
+    $(".chat-msg").animate({ scrollTop: $(".chat-msg")[0].scrollHeight }, 0);
+  });
+
+  connection.on("addChatRoom", function (roomname, roomid) {
+    //remove space in roomname
+    var name = roomname.replace(/\s/g, "");
+    var myRoom = `<div class="group my-2 d-flex align-items-center" >
+      <img src="https://avatars.dicebear.com/api/identicon/${name}}.svg" alt="avatar" width="60" class="avatar mr-2">
+      <span class="d-none">${roomid}</span>
+      <h5 style="font-weight:700">
+          ${roomname}
+      </h5>
+  </div>`;
+    $(".user-list").append(myRoom);
+    //click on button
+    $(".close-modal").click();
+
+    $(".group").click(function (e) {
+      $(this).addClass("useractive");
+      //get src attribute of img  children elements
+      var imgsrc = $(this).children("img").attr("src");
+      var grpname = $(this).children("h5");
+      var grpId = $(this).children("span");
+      //set inner html of .chat-frame  to chatSection
+      $(".chat-frame").html(` <div class="chat-header">
+   <div class="d-flex align-items-center">
+       <img width="60" height="60" src="${imgsrc}">
+       <strong class="receiver-name">${grpname}</strong>
+   </div>
+  </div>
+  <hr style="width:90%" />
+  <div class="chattingframe">
+  <div class="chat-msg ">
+   
+  </div>
+  </div>
+  </div>
+  <hr style="width:90%" />
+  <div class="chat-input">
+   <form class="send-msg"><input class="input-msg"  placeholder="type something nice" value=""><button type="submit" id="sendButton">🕊️</button></form>
+  </div>`);
+      document.getElementById("sendButton").disabled = true;
+      //add event listener for messageInput enter event
+      $(".input-msg").on("keypress", function (e) {
+        if (e.code == "Enter") {
+          //clear input value
+          sendMessage(e);
+          $(this).val("");
+        }
+      });
+
+      document
+        .getElementById("sendButton")
+        .addEventListener("click", function (event) {
+          // var user = document.getElementById("userInput").value;
+          sendMessage(event);
+        });
+
+      $(".input-msg").on("change", function (e) {
+        document.getElementById("sendButton").disabled = false;
+      });
+      $(".chat-msg").animate({ scrollTop: $(".chat-msg")[0].scrollHeight }, 0);
+      connection
+        .invoke("GetMessageGroupHistory", grpId.html())
+        .catch(function (err) {
+          return console.error(err.toString());
+        });
+    });
+  });
+
   connection.on("ReceiveMessage", function (message, avatar) {
     debugger;
     var sendMessage = `<div class="d-flex justify-content-start">
@@ -147,8 +265,8 @@ $(document).ready(function () {
     var noti = `<div class="d-flex justify-content-center my-msg">
       <p class=" my-0 py-1">${username} has left conversation</p>
       </div>`;
-      $(".chat-msg").append(noti);
-      $(".chat-msg").animate({ scrollTop: $(".chat-msg")[0].scrollHeight }, 0);
+    $(".chat-msg").append(noti);
+    $(".chat-msg").animate({ scrollTop: $(".chat-msg")[0].scrollHeight }, 0);
   });
 
   connection.on("addUser", function (username) {
@@ -170,9 +288,9 @@ $(document).ready(function () {
     $(".chat-msg").animate({ scrollTop: $(".chat-msg")[0].scrollHeight }, 0);
   });
 
-  connection.on("onError", function(stringErr){
-    alert(stringErr); 
-  })
+  connection.on("onError", function (stringErr) {
+    alert(stringErr);
+  });
 
   connection
     .start()

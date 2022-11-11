@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ServerConsole.Entity
+namespace ServerConsole.DataAccess
 {
     public partial class Customer
     {
         public Customer()
         {
             Orders = new HashSet<Order>();
-            CustomerTypes = new HashSet<CustomerDemographic>();
         }
 
         public string CustomerId { get; set; } = null!;
@@ -24,7 +23,5 @@ namespace ServerConsole.Entity
         public string? Fax { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
-
-        public virtual ICollection<CustomerDemographic> CustomerTypes { get; set; }
     }
 }

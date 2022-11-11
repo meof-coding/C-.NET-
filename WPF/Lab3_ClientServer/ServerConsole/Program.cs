@@ -1,6 +1,6 @@
 ﻿using System.Net.Sockets;
 using System.Net;
-using ServerConsole.Entity;
+using ServerConsole.DataAccess;
 using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;

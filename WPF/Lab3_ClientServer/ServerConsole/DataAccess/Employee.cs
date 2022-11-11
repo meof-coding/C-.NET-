@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ServerConsole.Entity
+namespace ServerConsole.DataAccess
 {
     public partial class Employee
     {
@@ -9,7 +9,6 @@ namespace ServerConsole.Entity
         {
             InverseReportsToNavigation = new HashSet<Employee>();
             Orders = new HashSet<Order>();
-            Territories = new HashSet<Territory>();
         }
 
         public int EmployeeId { get; set; }
@@ -34,7 +33,5 @@ namespace ServerConsole.Entity
         public virtual Employee? ReportsToNavigation { get; set; }
         public virtual ICollection<Employee> InverseReportsToNavigation { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
-
-        public virtual ICollection<Territory> Territories { get; set; }
     }
 }

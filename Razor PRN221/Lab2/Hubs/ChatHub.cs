@@ -55,9 +55,13 @@ namespace DemoRealTimeApp.Hubs
             await base.OnDisconnectedAsync(exception);
         }
 
-        public IEnumerable<UserRoom> GetRooms(string userId)
+        public IEnumerable<Room> GetRooms(string userId)
         {
-            List<UserRoom> _UsersRoom = _applicationDbContext.UserRooms.Where(u => u.UserId == userId).Select(x=>x.Id).ToList();
+            List<int?> _UsersRoom = _applicationDbContext.UserRooms.Where(u => u.UserId == userId).Select(x=>x.RoomId).ToList();
+            List<Room> _Rooms = new List<Room>();
+            foreach (var id in _UsersRoom)
+            {
+                _Rooms.Add(_applicationDbContext.Rooms.Where(x => x.Id == id.Value).Select((room)=> new Room { Id = room.Id, });
             }
             return _UsersRoom.Where(u => u.UserId == userId);
         }

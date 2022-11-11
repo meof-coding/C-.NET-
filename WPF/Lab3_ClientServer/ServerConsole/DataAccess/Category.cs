@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ServerConsole.Entity
+namespace ServerConsole.DataAccess
 {
     public partial class Category
     {

@@ -1,5 +1,6 @@
 ﻿using Bussiness_Object;
 using Bussiness_Object.DataAccess;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace DataAccess
             {
                 using (var context = new NorthwindContext())
                 {
-                    listProducts = context.Products.ToList();
+                    listProducts = context.Products.Include(p => p.Category).Include(p => p.Supplier).ToList();
                 }
             }
             catch (Exception e)
@@ -35,7 +36,8 @@ namespace DataAccess
             {
                 using (var context = new NorthwindContext())
                 {
-                    p = context.Products.SingleOrDefault(x => x.ProductId == proId);
+                    p = context.Products.Include(p => p.Category)
+                .Include(p => p.Supplier).SingleOrDefault(x => x.ProductId == proId);
                 }
             }
             catch (Exception e)
@@ -43,7 +45,7 @@ namespace DataAccess
                 Console.WriteLine(e.ToString());
             }
             return p;
-        }  
+        }
 
         public static void SaveProduct(Product p)
         {
@@ -85,6 +87,8 @@ namespace DataAccess
                 {
                     var p1 = context.Products.SingleOrDefault(c => c.ProductId == p.ProductId);
                     context.Products.Remove(p1);
+                    var o1 = context.OrderDetails.Where(c => c.ProductId == p.ProductId);
+                    context.OrderDetails.RemoveRange(o1);
                     context.SaveChanges();
                 }
             }

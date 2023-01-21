@@ -15,7 +15,19 @@ namespace ProductManagementAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Product>> GetProducts()
         {
-            return repository.GetProducts();
+            return Ok(repository.GetProducts());
+        }
+
+        //GET: api/Products/5
+        [HttpGet("{id}")]
+        public ActionResult<Product> GetProductById(int id)
+        {
+            var p = repository.GetProductById(id);
+            if (p == null)
+            {
+                return NotFound();
+            }
+            return p;
         }
 
         //POST: ProductsController/Products
@@ -40,7 +52,7 @@ namespace ProductManagementAPI.Controllers
         }
 
         [HttpPut("id")]
-        public IActionResult UpdateProduct(int id, Product p)
+        public IActionResult UpdateProduct([FromQuery] int id, Product p)
         {
             var pTmp = repository.GetProductById(id);
             if (pTmp == null)

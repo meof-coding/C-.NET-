@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Bussiness_Object.DataAccess
 {
@@ -22,7 +23,7 @@ namespace Bussiness_Object.DataAccess
         public string? Phone { get; set; }
         public string? Fax { get; set; }
         public string? HomePage { get; set; }
-
+        [JsonIgnore]
         public virtual ICollection<Product> Products { get; set; }
     }
 }

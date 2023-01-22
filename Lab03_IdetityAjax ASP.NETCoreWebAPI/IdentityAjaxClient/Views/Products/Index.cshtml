@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "ProductList";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>
+                ProductId
+            </th>
+            <th>
+                ProductName
+            </th>
+            <th>
+                QuantityPerUnit
+            </th>
+            <th>
+                UnitPrice
+            </th>
+            <th>
+                Update
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        debugger;
+        $.ajax({
+            url: 'https://localhost:7088/api/Products',
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (data) {
+                var html = '';
+                $.each(data, function (key, item) {
+                    html += '<tr>';
+                    html += '<td>' + item.productId + '</td>';
+                    html += '<td>' + item.productName + '</td>';
+                    html += '<td>' + item.quantityPerUnit + '</td>';
+                    html += '<td>' + item.unitPrice + '</td>';
+                    html += '<td><a href="/products/edit/' + item.productId + '"><img src="img/edit.png" width="20px"/></a></td>';
+                    html += '<td><a href="/products/delete/' + item.productId + '"><img src="img/close.png" width="20px"></a></td>';
+                    html += '</tr>';
+                });
+                $('tbody').html(html);
+            },
+            error: function (err) {
+                alert(err.responseText);
+            }
+        });
+    });
+
+</script>

@@ -1,0 +1,121 @@
+﻿@model BusinessObjects.DataAccess.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupplierId" class="control-label"></label>
+                <select asp-for="SupplierId" class="form-control">
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control">
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantityPerUnit" class="control-label"></label>
+                <input asp-for="QuantityPerUnit" class="form-control" />
+                <span asp-validation-for="QuantityPerUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Discontinued" /> @Html.DisplayNameFor(model =>
+                    model.Discontinued)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" id="createProduct" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script type="text/javascript">
+    $(document).ready(function () {
+        //load suppliers select option
+        debugger;
+        $.ajax({
+            url: "https://localhost:7088/api/Suppliers",
+            type: "GET",
+            success: function (data) {
+                var suppliers = data;
+                var options = "";
+                for (var i = 0; i < suppliers.length; i++) {
+                    options += "<option value='" + suppliers[i].supplierId + "'>" + suppliers[i].companyName + "</option>";
+                }
+                $("#SupplierId").append(options);
+            },
+            error: function (data) {
+                alert("Error while getting suppliers");
+            }
+        });
+
+        //load categories select option
+        $.ajax({
+            url: "https://localhost:7088/api/Categories",
+            type: "GET",
+            success: function (data) {
+                var categories = data;
+                var options = "";
+                for (var i = 0; i < categories.length; i++) {
+                    options += "<option value='" + categories[i].categoryId + "'>" + categories[i].categoryName + "</option>";
+                }
+                $("#CategoryId").append(options);
+            },
+            error: function (data) {
+                alert("Error while getting categories");
+            }
+        });
+
+        $("#createProduct").on("click", function () {
+            var productName = $("#ProductName").val();
+            var supplierId = $("#SupplierId").val();
+            var categoryId = $("#CategoryId").val();
+            var quantityPerUnit = $("#QuantityPerUnit").val();
+            var discontinued = $("#Discontinued").val();
+            $.ajax({
+                url: "https://localhost:7088/api/Products",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    ProductName: productName,
+                    SupplierId: supplierId,
+                    CategoryId: categoryId,
+                    QuantityPerUnit: quantityPerUnit,
+                    Discontinued: discontinued == "true" ? true : false
+                }),
+                success: function (data) {
+                    alert("Product created successfully");
+                },
+                error: function (data) {
+                    alert("Error while creating product");
+                }
+            });
+        });
+    });
+</script>
+}

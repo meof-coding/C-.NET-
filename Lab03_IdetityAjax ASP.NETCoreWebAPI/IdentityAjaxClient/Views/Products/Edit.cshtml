@@ -1,0 +1,180 @@
+﻿@model BusinessObjects.DataAccess.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<div style="  background: #d6ebd6;
+    padding: 10px; " class="updateSucess">Product updated successfully!!
+</div>
+<div style="  background: #f2dede;
+    padding: 10px; " class="updateError">Error while updating product!!
+    </div>
+    <h4>Product</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit" id="editForm">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ProductId" value="@ViewBag.Id" />
+                <div class="form-group">
+                    <label asp-for="ProductName" class="control-label"></label>
+                    <input asp-for="ProductName" class="form-control" />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SupplierId" class="control-label"></label>
+                    <select asp-for="SupplierId" class="form-control"></select>
+                    <span asp-validation-for="SupplierId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="control-label"></label>
+                    <select asp-for="CategoryId" class="form-control"></select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="QuantityPerUnit" class="control-label"></label>
+                    <input asp-for="QuantityPerUnit" class="form-control" />
+                    <span asp-validation-for="QuantityPerUnit" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UnitPrice" class="control-label"></label>
+                    <input asp-for="UnitPrice" class="form-control" />
+                    <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UnitsInStock" class="control-label"></label>
+                    <input asp-for="UnitsInStock" class="form-control" />
+                    <span asp-validation-for="UnitsInStock" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UnitsOnOrder" class="control-label"></label>
+                    <input asp-for="UnitsOnOrder" class="form-control" />
+                    <span asp-validation-for="UnitsOnOrder" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReorderLevel" class="control-label"></label>
+                    <input asp-for="ReorderLevel" class="form-control" />
+                    <span asp-validation-for="ReorderLevel" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Discontinued" /> @Html.DisplayNameFor(model =>
+                        model.Discontinued)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" id="updateBtn" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" id="backBtn">Back to List</a>
+    </div>
+
+    @section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //set updateSucess display none
+            $(".updateSucess").css("display", "none");
+            $(".updateError").css("display", "none");
+            //load suppliers select option
+            debugger;
+            $.ajax({
+                url: "https://localhost:7088/api/Suppliers",
+                type: "GET",
+                success: function (data) {
+                    var suppliers = data;
+                    var options = "";
+                    for (var i = 0; i < suppliers.length; i++) {
+                        options += "<option value='" + suppliers[i].supplierId + "'>" + suppliers[i].companyName + "</option>";
+                    }
+                    $("#SupplierId").append(options);
+                },
+                error: function (data) {
+                    alert("Error while getting suppliers");
+                }
+            });
+
+            $("#editForm").on('submit', function (event){
+                    event.preventDefault();
+                     debugger;
+                var product = {
+                    productId: $("#ProductId").val(),
+                    productName: $("#ProductName").val(),
+                    supplierId: $("#SupplierId").val(),
+                    categoryId: $("#CategoryId").val(),
+                    quantityPerUnit: $("#QuantityPerUnit").val(),
+                    unitPrice: $("#UnitPrice").val(),
+                    unitsInStock: $("#UnitsInStock").val(),
+                    unitsOnOrder: $("#UnitsOnOrder").val(),
+                    reorderLevel: $("#ReorderLevel").val(),
+                    discontinued: $("#Discontinued").val() == "true" ? true : false
+                };
+                $.ajax({
+                    //prevent reload on ajax
+                    url: "https://localhost:7088/api/Products/id?id=" + productId,
+                    type: "PUT",
+                    data: JSON.stringify(product),
+                    contentType: "application/json",
+                    success: function (data) {
+                        //prevent reload 
+                       $(".updateSucess").css("display", "block");
+                    },
+                    error: function (data) {
+                        debugger;
+                        $(".updateError").css("display", "block");                        
+                    }
+                });
+            })
+            //load categories select option
+            $.ajax({
+                url: "https://localhost:7088/api/Categories",
+                type: "GET",
+                success: function (data) {
+                    var categories = data;
+                    var options = "";
+                    for (var i = 0; i < categories.length; i++) {
+                        options += "<option value='" + categories[i].categoryId + "'>" + categories[i].categoryName + "</option>";
+                    }
+                    $("#CategoryId").append(options);
+                },
+                error: function (data) {
+                    alert("Error while getting categories");
+                }
+            });
+
+            //get products by productId
+            var productId = $("#ProductId").val();
+            $.ajax({
+                url: "https://localhost:7088/api/Products/" + productId,
+                type: "GET",
+                success: function (data) {
+                    var product = data;
+                    $("#ProductName").val(product.productName);
+                    $("#SupplierId").val(product.supplierId);
+                    $("#CategoryId").val(product.categoryId);
+                    $("#QuantityPerUnit").val(product.quantityPerUnit);
+                    $("#UnitPrice").val(product.unitPrice);
+                    $("#UnitsInStock").val(product.unitsInStock);
+                    $("#UnitsOnOrder").val(product.unitsOnOrder);
+                    $("#ReorderLevel").val(product.reorderLevel);
+                    $("#Discontinued").prop('checked', product.discontinued);
+                },
+                error: function (data) {
+                    alert("Error while getting product");
+                }
+            });
+
+            //$("#updateBtn").on("click", function () {
+             
+
+           // });
+        });
+    </script>
+    }

@@ -2,8 +2,17 @@
     ViewData["Title"] = "ProductList";
 }
 
-<h1>Index</h1>
-
+<h1>Products</h1>
+<div style="  background: #d6ebd6;
+    padding: 10px; " class="msg">@if (TempData["edtmsg"] != null)
+            {
+                 @TempData["edtmsg"].ToString();
+            }
+            @if (TempData["delmsg"] != null)
+            { 
+                 @TempData["delmsg"].ToString();
+            }
+</div>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -36,6 +45,19 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        //if $(.msg) is display then make it display none after 2 sec
+        if ($('.msg').css('display') == 'block') {
+            setTimeout(function () {
+                $('.msg').css('display', 'none');
+            }, 2000);
+        }
+        //check if string is text using regex pattern
+        if ( $('.msg').html() != "") {
+            $('.msg').css('display', 'block');
+        }
+        else {
+            $('.msg').css('display', 'none');
+        }
         debugger;
         $.ajax({
             url: 'https://localhost:7088/api/Products',

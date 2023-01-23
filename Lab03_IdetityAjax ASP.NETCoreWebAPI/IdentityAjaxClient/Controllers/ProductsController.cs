@@ -55,7 +55,9 @@ namespace IdentityAjaxClient.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
         {
-            return View();
+            //passing msg edit sucessfully to Index
+            TempData["edtmsg"] = "Edit Successfully";
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Products/Delete/5
@@ -68,9 +70,11 @@ namespace IdentityAjaxClient.Controllers
         // POST: Products/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id, IFormCollection collection)
+        public ActionResult Delete(int id, IFormCollection collection)
         {
-            return View();
+            //passing msg delete sucessfully to Index
+            TempData["delmsg"] = "Delete Successfully";
+            return RedirectToAction(nameof(Index));
         }
 
         // private bool ProductExists(int id)

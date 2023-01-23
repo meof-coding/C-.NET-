@@ -5,12 +5,12 @@
 }
 
 <h1>Edit</h1>
-<div style="  background: #d6ebd6;
+@* <div style="  background: #d6ebd6;
     padding: 10px; " class="updateSucess">Product updated successfully!!
 </div>
 <div style="  background: #f2dede;
     padding: 10px; " class="updateError">Error while updating product!!
-    </div>
+    </div> *@
     <h4>Product</h4>
     <hr />
     <div class="row">
@@ -102,7 +102,6 @@
             });
 
             $("#editForm").on('submit', function (event){
-                    event.preventDefault();
                      debugger;
                 var product = {
                     productId: $("#ProductId").val(),
@@ -124,11 +123,10 @@
                     contentType: "application/json",
                     success: function (data) {
                         //prevent reload 
-                       $(".updateSucess").css("display", "block");
+                      alert("Product updated successfully!!");
                     },
                     error: function (data) {
-                        debugger;
-                        $(".updateError").css("display", "block");                        
+                       alert("Error while updating product!!") ;             
                     }
                 });
             })

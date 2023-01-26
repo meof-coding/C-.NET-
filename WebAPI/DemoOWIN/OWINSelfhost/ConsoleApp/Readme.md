@@ -58,3 +58,61 @@ namespace Owin.SelfHosting.Console
    }
 }
 ```
+* Create an `AppBuilderExtensions` class in a separate file. This class contains extension methods which allow developers to register the `WelcomeMiddleware` using the `UseWelcome` method instead of the generic Use method. The first method takes no argument and calls the second method by passing a default value.
+``` c#
+namespace Owin.SelfHosting.Console
+{
+   internal static class AppBuilderExtensions
+   {
+      public static IAppBuilder UseWelcome(this IAppBuilder appBuilder)
+      {
+         return appBuilder.UseWelcome(new WelcomeOption("Peter", "Welcome to this site"));
+      }
+
+      public static IAppBuilder UseWelcome
+             (this IAppBuilder appBuilder, WelcomeOption option)
+      {
+         return appBuilder
+           .Use(typeof(WelcomeMiddleware), option);
+      }
+   }
+}
+```
+* Create a `Startup` class in a separate file. This class is required when creating a listener
+```c#
+namespace Owin.SelfHosting.Console
+{
+   internal class Startup
+   {
+      public void Configuration(IAppBuilder appBuilder)
+      {
+         appBuilder
+           .UseWelcome();
+      }
+   }
+}
+```
+* In the `Program` class, put the code below:
+```c#
+using Microsoft.Owin.Hosting;
+
+namespace Owin.SelfHosting.Console
+{
+   internal class Program
+   {
+      public static void Main(string[] args)
+      {
+         string hostUrl = "http://localhost:9000/console";
+         using (WebApp.Start<Startup>(""))
+         {
+            System.Console.WriteLine
+                   (string.Format("Start Listening at {0} ...", hostUrl));
+            System.Console.ReadKey();
+         }
+      }
+   }
+}
+```
+* Run the application, and wait until it displays `'Start Listening at http://localhost:9000/console ...'`
+* To test the application, run any browsers and type `'http://localhost:9000/console'`
+* The browser should display `'I am Peter. Welcome to this site'` and the console application should display `'Http request received at [request timestamp]'`

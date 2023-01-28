@@ -13,7 +13,6 @@ static IEdmModel GetEdmModel()
     oDataConventionModelBuilder.EntitySet<Press>("Presses");
     return oDataConventionModelBuilder.GetEdmModel();
 }
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

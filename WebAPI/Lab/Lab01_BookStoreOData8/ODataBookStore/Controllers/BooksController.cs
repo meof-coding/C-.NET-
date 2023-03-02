@@ -67,7 +67,8 @@ namespace ODataBookStore.Controllers
         [EnableQuery]
         public IActionResult Get(int key, string version)
         {
-            return Ok(db.Books.FirstOrDefault(c => c.Id == key));
+            //include press in book
+            return Ok(db.Books.Include(c => c.Press).FirstOrDefault(c => c.Id == key));
         }
 
         [EnableQuery]

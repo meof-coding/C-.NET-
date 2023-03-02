@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ODataBookStoreWebClient.Entity;
@@ -42,7 +43,7 @@ namespace ODataBookStoreWebClient.Controllers
         //Detail
         public async Task<IActionResult> Details(int id)
         {
-            HttpResponseMessage response = await client.GetAsync(ProductApiUrl + "(" + id + ")");
+            HttpResponseMessage response = await client.GetAsync(ProductApiUrl + "(" + id + ")?$expand= Press");
             string strData = await response.Content.ReadAsStringAsync();
 
             dynamic temp = JObject.Parse(strData);
@@ -54,6 +55,12 @@ namespace ODataBookStoreWebClient.Controllers
                 ISBN = (string)temp["ISBN"],
                 Title = (string)temp["Title"],
                 Price = (decimal)temp["Price"],
+                Location = new Address { City = (string)temp["Location"]["City"], Street = (string)temp["Location"]["Street"] },
+                Press = new Press
+                {
+                    Name = (string)temp["Press"]["Name"],
+                    Category = Enum.GetName(ODataBookStore.Category.Book),
+                }
             };
             return View(item);
         }
@@ -94,7 +101,7 @@ namespace ODataBookStoreWebClient.Controllers
         //Edit
         public async Task<IActionResult> Edit(int id)
         {
-            HttpResponseMessage response = await client.GetAsync(ProductApiUrl + "(" + id + ")");
+            HttpResponseMessage response = await client.GetAsync(ProductApiUrl + "(" + id + ")?$expand= Press");
             string strData = await response.Content.ReadAsStringAsync();
 
             dynamic temp = JObject.Parse(strData);
@@ -106,11 +113,12 @@ namespace ODataBookStoreWebClient.Controllers
                 ISBN = (string)temp["ISBN"],
                 Title = (string)temp["Title"],
                 Price = (decimal)temp["Price"],
-                Location = new Address { City = " ", Street = " " },
+                Location = new Address { City = (string)temp["Location"]["City"], Street = (string)temp["Location"]["Street"] },
                 Press = new Press
                 {
-                    Name = " ",
-                    Category = Enum.GetName(ODataBookStore.Category.Book),
+                    Id = (int)temp["Press"]["Id"],
+                    Name = (string)temp["Press"]["Name"],
+                    Category = (string)temp["Press"]["Category"],
                 }
             };
             return View(item);
@@ -127,11 +135,12 @@ namespace ODataBookStoreWebClient.Controllers
                 ISBN = collection["ISBN"],
                 Title = collection["Title"],
                 Price = decimal.Parse(collection["Price"]),
-                Location = new Address { City = " ", Street = " " },
+                Location = new Address { City = collection["Location.City"], Street = collection["Location.Street"] },
                 Press = new Press
                 {
-                    Name = " ",
-                    Category = Enum.GetName(ODataBookStore.Category.Book),
+                    Name = collection["Press.Name"],
+                    //parse collection["Press.Category"] to enum
+                    Category = Enum.Parse(typeof(ODataBookStore.Category), collection["Press.Category"].ToString()).ToString(),
                 }
             };
             string strData = JsonConvert.SerializeObject(item);

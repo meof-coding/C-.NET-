@@ -33,6 +33,45 @@
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
+            @* Location *@
+            <h2>Location</h2>
+            @* Name *@
+            <div class="form-group">
+                <label asp-for="Location.City " class="control-label"></label>
+                <input asp-for="Location.City" class="form-control" />
+                <span asp-validation-for="Location.City" class="text-danger"></span>
+            </div>
+            @* Address *@
+            <div class="form-group">
+                <label asp-for="Location.Street" class="control-label"></label>
+                <input asp-for="Location.Street" class="form-control" />
+                <span asp-validation-for="Location.Street" class="text-danger"></span>
+            </div>
+            @* Press *@
+            <h2>Press</h2>
+            @* Name *@
+            <div class="form-group">
+                <label asp-for="Press.Name" class="control-label"></label>
+                <input asp-for="Press.Name" class="form-control" />
+                <span asp-validation-for="Press.Name" class="text-danger"></span>
+            </div>
+            @* CAtegory *@ 
+            <div class="form-group">
+                <label asp-for="Press.Category" class="control-label"></label>
+                <select asp-for = "Press.Category" class="form-control">
+                @foreach (var item in Enum.GetValues(typeof(ODataBookStore.Category)))
+                {
+                    if (item == Model.Press.Category)
+                    {
+                        <option selected="selected" value="@item">@Enum.GetName(typeof(ODataBookStore.Category), item)</option>
+                    }
+                    else{
+                        <option value="@item">@Enum.GetName(typeof(ODataBookStore.Category), item)</option>
+                    }
+                }
+                </select>
+                <span asp-validation-for="Press.Category" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

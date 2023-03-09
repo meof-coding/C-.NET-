@@ -16,21 +16,21 @@ namespace ClassworkrGPC.DataAccess
         {
         }
 
-        public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Shipper> Shippers { get; set; }
-        public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<Category> Categories { get; set; } = null!;
+        public virtual DbSet<Customer> Customers { get; set; } = null!;
+        public virtual DbSet<Employee> Employees { get; set; } = null!;
+        public virtual DbSet<Order> Orders { get; set; } = null!;
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; } = null!;
+        public virtual DbSet<Product> Products { get; set; } = null!;
+        public virtual DbSet<Shipper> Shippers { get; set; } = null!;
+        public virtual DbSet<Supplier> Suppliers { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("server =(local); database = Northwind; uid=sa;pwd=123456");
+                optionsBuilder.UseSqlServer("server =(local); database = Northwind;uid=sa;pwd=19112001");
             }
         }
 
@@ -40,9 +40,7 @@ namespace ClassworkrGPC.DataAccess
             {
                 entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
 
-                entity.Property(e => e.CategoryName)
-                    .IsRequired()
-                    .HasMaxLength(15);
+                entity.Property(e => e.CategoryName).HasMaxLength(15);
 
                 entity.Property(e => e.Description).HasColumnType("ntext");
 
@@ -60,9 +58,7 @@ namespace ClassworkrGPC.DataAccess
 
                 entity.Property(e => e.City).HasMaxLength(15);
 
-                entity.Property(e => e.CompanyName)
-                    .IsRequired()
-                    .HasMaxLength(40);
+                entity.Property(e => e.CompanyName).HasMaxLength(40);
 
                 entity.Property(e => e.ContactName).HasMaxLength(30);
 
@@ -93,17 +89,13 @@ namespace ClassworkrGPC.DataAccess
 
                 entity.Property(e => e.Extension).HasMaxLength(4);
 
-                entity.Property(e => e.FirstName)
-                    .IsRequired()
-                    .HasMaxLength(10);
+                entity.Property(e => e.FirstName).HasMaxLength(10);
 
                 entity.Property(e => e.HireDate).HasColumnType("datetime");
 
                 entity.Property(e => e.HomePhone).HasMaxLength(24);
 
-                entity.Property(e => e.LastName)
-                    .IsRequired()
-                    .HasMaxLength(20);
+                entity.Property(e => e.LastName).HasMaxLength(20);
 
                 entity.Property(e => e.Notes).HasColumnType("ntext");
 
@@ -208,9 +200,7 @@ namespace ClassworkrGPC.DataAccess
 
                 entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
 
-                entity.Property(e => e.ProductName)
-                    .IsRequired()
-                    .HasMaxLength(40);
+                entity.Property(e => e.ProductName).HasMaxLength(40);
 
                 entity.Property(e => e.QuantityPerUnit).HasMaxLength(20);
 
@@ -241,9 +231,7 @@ namespace ClassworkrGPC.DataAccess
             {
                 entity.Property(e => e.ShipperId).HasColumnName("ShipperID");
 
-                entity.Property(e => e.CompanyName)
-                    .IsRequired()
-                    .HasMaxLength(40);
+                entity.Property(e => e.CompanyName).HasMaxLength(40);
 
                 entity.Property(e => e.Phone).HasMaxLength(24);
             });
@@ -256,9 +244,7 @@ namespace ClassworkrGPC.DataAccess
 
                 entity.Property(e => e.City).HasMaxLength(15);
 
-                entity.Property(e => e.CompanyName)
-                    .IsRequired()
-                    .HasMaxLength(40);
+                entity.Property(e => e.CompanyName).HasMaxLength(40);
 
                 entity.Property(e => e.ContactName).HasMaxLength(30);
 

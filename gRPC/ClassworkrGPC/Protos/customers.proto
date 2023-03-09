@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClassworkrGPC";
+
+package customers;
+
+service CustomerService {
+    rpc GetCustomers(GetCustomersRequest) returns (GetCustomersResponse) {}
+}
+
+message GetCustomersRequest {
+}
+
+// base on Customer.cs
+message Customer{
+  string ID = 1;
+  string company_name = 2;
+  string contact_name = 3;
+  string contact_title = 4;
+  string address = 5;
+  string city = 6;
+  string region = 7;
+  string postal_code = 8;
+  string country = 9;
+  string phone = 10;
+  string fax = 11;
+}
+
+message GetCustomersResponse {
+    repeated Customer customers = 1;
+}

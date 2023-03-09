@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassworkrGPC", "ClassworkrGPC.csproj", "{2AD727D5-C0AF-46DC-ACD2-9AD4C8F4610E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "..\ConsoleClient\ConsoleClient.csproj", "{A959B31D-9D63-42B8-BD66-AC4E18E40916}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2AD727D5-C0AF-46DC-ACD2-9AD4C8F4610E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AD727D5-C0AF-46DC-ACD2-9AD4C8F4610E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AD727D5-C0AF-46DC-ACD2-9AD4C8F4610E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A959B31D-9D63-42B8-BD66-AC4E18E40916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A959B31D-9D63-42B8-BD66-AC4E18E40916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A959B31D-9D63-42B8-BD66-AC4E18E40916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A959B31D-9D63-42B8-BD66-AC4E18E40916}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "40mV1r6v3NWIG5eObgimZaDjTvSTRq8vSm7a3cYXE0yEpAhRKtuUsgoO3HH3B64rMOG0dNMIDDxBgN1Z/tT5VQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Sinka.Dev\\Downloads\\C-sharp-dotNET-\\gRPC\\ConsoleClient\\ConsoleClient.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sinka.Dev\\.nuget\\packages\\google.protobuf\\3.22.1\\google.protobuf.3.22.1.nupkg.sha512",
+    "C:\\Users\\Sinka.Dev\\.nuget\\packages\\grpc.core.api\\2.51.0\\grpc.core.api.2.51.0.nupkg.sha512",
+    "C:\\Users\\Sinka.Dev\\.nuget\\packages\\grpc.net.client\\2.51.0\\grpc.net.client.2.51.0.nupkg.sha512",
+    "C:\\Users\\Sinka.Dev\\.nuget\\packages\\grpc.net.common\\2.51.0\\grpc.net.common.2.51.0.nupkg.sha512",
+    "C:\\Users\\Sinka.Dev\\.nuget\\packages\\grpc.tools\\2.52.0\\grpc.tools.2.52.0.nupkg.sha512",
+    "C:\\Users\\Sinka.Dev\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.0.3\\microsoft.extensions.logging.abstractions.3.0.3.nupkg.sha512",
+    "C:\\Users\\Sinka.Dev\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}
